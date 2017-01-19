@@ -78,7 +78,10 @@ extension Resource {
     func request(credentialsProvider: ResourceAPI = .default, completion: @escaping RequestCompletion) {
         
         // Build `URLRequest` with this resource
-        let credentialedRequest = try! credentialsProvider.credential(self)
+        guard let credentialedRequest = try? credentialsProvider.credential(self) else {
+            completion(nil, WebServiceError.creatingRequestFailed)
+            return
+        }
         
         // Perform `dataTask` with `shared` `URLSession` and resource request
         URLSession.shared.dataTask(with: credentialedRequest) { data, _, error in
