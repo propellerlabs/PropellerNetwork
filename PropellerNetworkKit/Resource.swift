@@ -9,12 +9,15 @@
 import Foundation
 
 typealias JSONObject = [String: Any]
-typealias Parameters = [String: CustomStringConvertible]
+typealias Parameters = [String: Any]
 typealias HTTPHeaders = [String: String]
 
+/// WebService error
 enum WebServiceError: Error {
     case creatingRequestFailed
     case parsingResponseFailed
+    case unacceptableStatusCode(code: Int)
+    case unknown
 }
 
 /// HTTP method mapping for`Resource` and `URLRequest` objects
@@ -26,9 +29,11 @@ enum HTTPMethod: String {
     case put
 }
 
+private let acceptableStatusCodes = Array(200..<300)
+
 /// Resource is analagous to an endpoint
 struct Resource<A> {
-    typealias ResourceDecoding = (Data) -> A
+    typealias JSONParse = (JSONObject) -> A?
     
     /// Resource API endpoint URL path
     let urlPath: String
@@ -40,21 +45,24 @@ struct Resource<A> {
     let headers: [String: String]?
     /// Parameter encoding
     let encoding: ParameterEncoding
-    /// Response decoding
-    let decoding: ResourceDecoding?
-}
+    /// Parse
+    let parsing: JSONParse?
 
-// MARK:- Convenience Resource initializer
-extension Resource {
     
     /// Initializer with some common default values
-    init(urlPath: String) {
-        self.urlPath = urlPath
-        self.method = .get
-        self.parameters = nil
-        self.headers = nil
-        self.encoding = JSONEncoding.default
-        self.decoding = nil
+    init(urlPath: String,
+         method: HTTPMethod = .get,
+         parameters: Parameters? = nil,
+         headers: [String: String]? = nil,
+         encoding: ParameterEncoding = JSONEncoding.default,
+         parsing: JSONParse? = nil) {
+        
+        self.urlPath    = urlPath
+        self.method     = method
+        self.parameters = parameters
+        self.headers    = headers
+        self.encoding   = encoding
+        self.parsing    = parsing
     }
 }
 
@@ -74,17 +82,22 @@ extension Resource {
     /// Requests a resource with completion via `URLSession` `dataTask`
     ///
     /// - Parameters:
+    ///     - configuration: a configuration conforming to `ResourceRequestConfiguring`
     ///     - completion: `(A?, Error?) -> Void`
-    func request(credentialsProvider: ResourceAPI = .default, completion: @escaping RequestCompletion) {
+    func request(configuration: ResourceRequestConfiguring, completion: @escaping RequestCompletion) {
         
         // Build `URLRequest` with this resource
-        guard let credentialedRequest = try? credentialsProvider.credential(self) else {
-            completion(nil, WebServiceError.creatingRequestFailed)
+        let request: URLRequest
+        
+        do {
+            request = try configuration.requestWith(self)
+        } catch {
+            completion(nil, error)
             return
         }
         
         // Perform `dataTask` with `shared` `URLSession` and resource request
-        URLSession.shared.dataTask(with: credentialedRequest) { data, _, error in
+        URLSession.shared.dataTask(with: request) { data, response, error in
             
             // Error case
             if let error = error {
@@ -93,11 +106,37 @@ extension Resource {
                 return
             }
             
+            // Check response code
+            if let response = response as? HTTPURLResponse {
+                if !acceptableStatusCodes.contains(response.statusCode) {
+                    let error = WebServiceError.unacceptableStatusCode(code: response.statusCode)
+                    completion(nil, error)
+                    return
+                }
+            }
+            
+            // For void types we will not be handling data
+            if A.self is Void.Type {
+                completion(() as? A, nil)
+                return
+            }
+            
             // Data response case
             if let data = data {
-                NSLog("Successfully recieved data for resource: \(self.description)")
-                let object = self.decoding?(data)
+                
+                let jsonObject: JSONObject
+                
+                do {
+                    jsonObject = try JSONDecoding.decode(data)
+                } catch {
+                    completion(nil, error)
+                    return
+                }
+                
+                // Parse object
+                let object = self.parsing?(jsonObject)
                 completion(object, nil)
+                
                 return
             }
             
@@ -109,60 +148,46 @@ extension Resource {
     }
 }
 
-struct ResourceAPI: ResourceCredentialing {
-    let basePath: String
-    let additionalHeaders: [String: String]?
-    let credentials: ResourceCredentials?
-    
-    static var `default` = ResourceAPI(basePath: "https://www.apibasepath.com/",
-                                       additionalHeaders: nil,
-                                       credentials: nil)
-    
-    func credential<A>(_ resource: Resource<A>) throws -> URLRequest {
-        
-        // Set url
-        guard let url = URL(string: basePath)?.appendingPathComponent(resource.urlPath) else {
-            throw WebServiceError.creatingRequestFailed
-        }
-        
-        // Create request and set method
-        var request = URLRequest(url: url)
-        request.httpMethod = resource.method.rawValue
-        
-        // Add headers
-        resource.headers?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
-        
-        // Add parameters
-        if let parameters = resource.parameters,
-           let encodedRequest = try? resource.encoding.encode(request, parameters: parameters) {
-            request = encodedRequest
-        }
-        
-        // Add additional headers
-        additionalHeaders?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
-        
-        // Add Auth header
-        if let credentials = credentials, let authAccessToken = credentials.authAccessToken {
-            request.addValue(authAccessToken, forHTTPHeaderField: credentials.authHeader)
-        }
-        
-        return request
-    }
-}
-
-private let APICredentialsAccessTokenKey = "APICredentialsAccessTokenKey"
-struct ResourceCredentials {
-    let authHeader: String
-    
-    var authAccessToken: String? {
-        get {
-            return UserDefaults.standard.string(forKey: APICredentialsAccessTokenKey)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: APICredentialsAccessTokenKey)
-        }
-    }
-}
-
-
-
+// TODO:- Request Resource with Promise
+//extension Resource {
+//    
+//    /// Requests a resource with completion via `URLSession` `dataTask`
+//    ///
+//    /// - Parameters:
+//    ///     - configuration: a configuration conforming to `ResourceRequestConfiguring`
+//    /// - Returns: a `Promise<A>`
+//    func request(configuration: ResourceRequestConfiguring = ResourceRequestConfiguration.staging) -> Promise<A> {
+//        let promise = Promise<A>()
+//        
+//        // Build `URLRequest` with this resource
+//        guard let request = try? configuration.requestWith(self) else {
+//            promise.reject(WebServiceError.creatingRequestFailed)
+//            return
+//        }
+//        
+//        // Perform `dataTask` with `shared` `URLSession` and resource request
+//        URLSession.shared.dataTask(with: request) { data, _, error in
+//            
+//            // Error case
+//            if let error = error {
+//                NSLog("Failed performing `URLSession` `dataTask` for resource: \(self.description)")
+//                promise.reject(error)
+//                return
+//            }
+//            
+//            // Data response case
+//            if let data = data {
+//                NSLog("Successfully recieved data for resource: \(self.description)")
+//                let object = self.decoding?(data)
+//                promise.fulfill(object)
+//                return
+//            }
+//            
+//            // Nil data and error case
+//            promise.reject(WebServiceError.unknown)
+//        }
+//        .resume()
+//        
+//        return promise
+//    }
+//}

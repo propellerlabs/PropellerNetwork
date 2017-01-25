@@ -8,11 +8,6 @@
 
 import Foundation
 
-/// Error types for parameter encoding
-enum ParameterEncodingError: Error {
-    case parameterEncodingFailed(error: Error)
-}
-
 /// Protocol that all URLRequest paramter encoders conform to
 protocol ParameterEncoding {
     
