@@ -8,19 +8,21 @@
 
 import Foundation
 
-enum JSONEncodingError: Error {
+enum JSONEncoderError: Error {
     case notValidJSON
 }
 
-struct JSONEncoding: ParameterEncoding {
-    public static var `default`: JSONEncoding = JSONEncoding()
+/// Handles converting a JSON object into data for transmission in 
+/// `URLRequest`
+struct JSONEncoder: ParameterEncoding {
+    public static var `default`: JSONEncoder = JSONEncoder()
     
     func encode(_ request: URLRequest, parameters: Parameters) throws -> URLRequest {
         var request = request
         
         // Make sure object is valid JSON
         if !JSONSerialization.isValidJSONObject(parameters) {
-            throw JSONEncodingError.notValidJSON
+            throw JSONEncoderError.notValidJSON
         }
         
         // Encode foundation object to data and set to request body

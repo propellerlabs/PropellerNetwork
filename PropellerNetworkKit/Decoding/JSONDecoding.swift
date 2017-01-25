@@ -8,11 +8,11 @@
 
 import Foundation
 
-
 enum JSONDecodingError: Error {
     case objectNotJSONObject
 }
 
+/// Handles decoding Data into a Foundation object
 struct JSONDecoding {
 
     static func decode(_ data: Data) throws -> JSONObject {

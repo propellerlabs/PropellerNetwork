@@ -54,7 +54,7 @@ struct Resource<A> {
          method: HTTPMethod = .get,
          parameters: Parameters? = nil,
          headers: [String: String]? = nil,
-         encoding: ParameterEncoding = JSONEncoding.default,
+         encoding: ParameterEncoding = JSONEncoder.default,
          parsing: JSONParse? = nil) {
         
         self.urlPath    = urlPath
@@ -144,50 +144,7 @@ extension Resource {
             completion(nil, nil)
         }
         .resume()
-        
     }
 }
 
 // TODO:- Request Resource with Promise
-//extension Resource {
-//    
-//    /// Requests a resource with completion via `URLSession` `dataTask`
-//    ///
-//    /// - Parameters:
-//    ///     - configuration: a configuration conforming to `ResourceRequestConfiguring`
-//    /// - Returns: a `Promise<A>`
-//    func request(configuration: ResourceRequestConfiguring = ResourceRequestConfiguration.staging) -> Promise<A> {
-//        let promise = Promise<A>()
-//        
-//        // Build `URLRequest` with this resource
-//        guard let request = try? configuration.requestWith(self) else {
-//            promise.reject(WebServiceError.creatingRequestFailed)
-//            return
-//        }
-//        
-//        // Perform `dataTask` with `shared` `URLSession` and resource request
-//        URLSession.shared.dataTask(with: request) { data, _, error in
-//            
-//            // Error case
-//            if let error = error {
-//                NSLog("Failed performing `URLSession` `dataTask` for resource: \(self.description)")
-//                promise.reject(error)
-//                return
-//            }
-//            
-//            // Data response case
-//            if let data = data {
-//                NSLog("Successfully recieved data for resource: \(self.description)")
-//                let object = self.decoding?(data)
-//                promise.fulfill(object)
-//                return
-//            }
-//            
-//            // Nil data and error case
-//            promise.reject(WebServiceError.unknown)
-//        }
-//        .resume()
-//        
-//        return promise
-//    }
-//}

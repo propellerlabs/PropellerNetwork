@@ -13,8 +13,7 @@ let timeout: TimeInterval = 10 //seconds for timeout
 
 class PropellerNetworkKitTests: XCTestCase {
     
-    /// Test parsing a Resource
-    func testResourcePostAndParseSuccessful() {
+    func testResourceParseSuccessful() {
         
         let resource = User.create(name: "Tester", email: "tester@propellerlabs.co", password: "test")
         
@@ -35,8 +34,7 @@ class PropellerNetworkKitTests: XCTestCase {
         XCTAssertNil(requestError)
     }
     
-    /// Test parsing a Void type Resource
-    func testResourceParseVoidSuccessful() {
+    func testVoidResourceParseSuccessful() {
         
         let resource = Resource<Void>(urlPath: "/get")
         
@@ -54,7 +52,6 @@ class PropellerNetworkKitTests: XCTestCase {
         XCTAssertNil(requestError)
     }
     
-    /// Test adding additional headers on request
     func testRequestWithAdditionalHeaders() {
         
         let headers = [
@@ -77,14 +74,13 @@ class PropellerNetworkKitTests: XCTestCase {
         XCTAssertNil(requestError)
     }
     
-    /// Test QueryString parameter encoding
     func testQueryStringParameterEncoding() {
         
         let params = [
             "includes_images": true
         ]
         
-        let resource = Resource<Void>(urlPath: "/get", parameters: params, encoding: QueryStringEncoding.default)
+        let resource = Resource<Void>(urlPath: "/get", parameters: params, encoding: QueryStringEncoder.default)
         
         var encodingError: Error?
         
@@ -113,8 +109,7 @@ class PropellerNetworkKitTests: XCTestCase {
         XCTAssertNil(encodingError)
     }
     
-    /// Test resource cofiguration with malformed basePath
-    func testResourceWithMalformedURL() {
+    func testResourceWithMalformedURLBasePath() {
         
         let resource = Resource<Void>(urlPath: "/get")
         
@@ -135,7 +130,6 @@ class PropellerNetworkKitTests: XCTestCase {
         }
     }
     
-    /// Test resource cofiguration AND request with failing configuration
     func testFailingResourceConfigurationRequest() {
         
         let resource = Resource<Void>(urlPath: "/get")
@@ -160,7 +154,6 @@ class PropellerNetworkKitTests: XCTestCase {
         }
     }
     
-    /// Test failing JSON Decoding
     func testFailingJSONDecoding() {
         
         let resource = Resource<Bool>(urlPath: "/xml") { _ in
@@ -181,7 +174,6 @@ class PropellerNetworkKitTests: XCTestCase {
         XCTAssertNotNil(requestError)
     }
     
-    /// Test JSONEncoding a request response
     func testFailingInvalidJSONEncoding() {
         
         let parameters = [
@@ -193,21 +185,20 @@ class PropellerNetworkKitTests: XCTestCase {
         let request = URLRequest(url: URL(string: "http://www.google.com")!)
         
         do {
-            let _ = try JSONEncoding.default.encode(request, parameters: parameters)
+            let _ = try JSONEncoder.default.encode(request, parameters: parameters)
         } catch {
             encodingError = error
         }
         
         XCTAssertNotNil(encodingError)
         
-        if let error = encodingError as? JSONEncodingError {
-            XCTAssertTrue(error == JSONEncodingError.notValidJSON)
+        if let error = encodingError as? JSONEncoderError {
+            XCTAssertTrue(error == JSONEncoderError.notValidJSON)
         } else {
             XCTFail("Unexpected Error type")
         }
     }
     
-    /// Test unacceptable response status codes
     func testFailingResponseStatusCode() {
         
         let resource = Resource<Void>(urlPath: "/status/404")
@@ -235,7 +226,6 @@ class PropellerNetworkKitTests: XCTestCase {
         }
     }
     
-    ///
     func testFailingRequestWithError() {
         
         let resource = Resource<Bool>(urlPath: "notAValidUrlPath")
@@ -260,7 +250,6 @@ class PropellerNetworkKitTests: XCTestCase {
         }
     }
     
-    /// Test JSONSerialization of request response data
     func testFailingRequestWithJSONSerializationError() {
         
         let resource = Resource<Bool>(urlPath: "bytes/0")
@@ -296,7 +285,7 @@ struct TestResourceRequestConfiguration: ResourceRequestConfiguring {
     }
 }
 
-/// Network configuration for testing
+/// Network configuration for testing invalid base path
 struct TestFailingResourceRequestConfiguration: ResourceRequestConfiguring {
     let basePath: String
     let additionalHeaders: [String : String]?
@@ -312,7 +301,7 @@ struct TestFailingResourceRequestConfiguration: ResourceRequestConfiguring {
     }
 }
 
-/// Network configuration for testing
+/// Network configuration for testing invalid responses
 struct TestErrorResourceRequestConfiguration: ResourceRequestConfiguring {
     let basePath: String
     let additionalHeaders: [String : String]?
@@ -322,7 +311,7 @@ struct TestErrorResourceRequestConfiguration: ResourceRequestConfiguring {
         let additionalHeaders = ["Content-Type": "application/json"]
         var credential = ResourceRequestCredential(authHeaderKey: "Authorization")
         credential.authAccessToken = "TestAccessToken"
-        return TestErrorResourceRequestConfiguration(basePath: "http://wwwwwwwwwwwwwwwwww.1234567sdgsfg.coo",
+        return TestErrorResourceRequestConfiguration(basePath: "http://abcd.1234567.coo",
                                                        additionalHeaders: additionalHeaders,
                                                        credential: credential)
     }

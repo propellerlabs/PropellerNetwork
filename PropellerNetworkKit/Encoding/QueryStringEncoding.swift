@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct QueryStringEncoding: ParameterEncoding {
-    public static var `default`: QueryStringEncoding = QueryStringEncoding()
+struct QueryStringEncoder: ParameterEncoding {
+    public static var `default`: QueryStringEncoder = QueryStringEncoder()
     
     func encode(_ request: URLRequest, parameters: Parameters) throws -> URLRequest {
         var request = request
