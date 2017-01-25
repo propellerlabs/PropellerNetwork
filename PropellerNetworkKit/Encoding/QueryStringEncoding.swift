@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct QueryStringEncoding: ParameterEncoding {
-    public static var `default`: QueryStringEncoding = QueryStringEncoding()
+struct QueryStringEncoder: ParameterEncoding {
+    public static var `default`: QueryStringEncoder = QueryStringEncoder()
     
     func encode(_ request: URLRequest, parameters: Parameters) throws -> URLRequest {
         var request = request
         
-        let queryItems = parameters.flatMap { URLQueryItem(name: $0.key, value: $0.value.description) }
+        let queryItems = parameters.flatMap { URLQueryItem(name: $0.key, value: "\($0.value)") }
         
         if let url = request.url {
             var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
