@@ -127,7 +127,7 @@ extension Resource {
                 let jsonObject: JSONObject
                 
                 do {
-                    jsonObject = try JSONDecoding.decode(data)
+                    jsonObject = try JSONDecoder.decode(data)
                 } catch {
                     completion(nil, error)
                     return
