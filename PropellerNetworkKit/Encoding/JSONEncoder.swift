@@ -1,5 +1,5 @@
 //
-//  JSONEncoding.swift
+//  JSONEncoder.swift
 //  PropellerNetworkKit
 //
 //  Created by Roy McKenzie on 1/18/17.

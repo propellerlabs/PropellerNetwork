@@ -1,5 +1,5 @@
 //
-//  JSONDecoding.swift
+//  JSONDecoder.swift
 //  PropellerNetworkKit
 //
 //  Created by Roy McKenzie on 1/23/17.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum JSONDecodingError: Error {
+enum JSONDecoderError: Error {
     case objectNotJSONObject
 }
 
 /// Handles decoding Data into a Foundation object
-struct JSONDecoding {
+struct JSONDecoder {
 
     static func decode(_ data: Data) throws -> JSONObject {
         
@@ -27,7 +27,7 @@ struct JSONDecoding {
         
         // Cast as a JSONObject [String: Any]
         guard let jsonObject = jsonObjectAny as? JSONObject else {
-            throw JSONDecodingError.objectNotJSONObject
+            throw JSONDecoderError.objectNotJSONObject
         }
         
         return jsonObject
