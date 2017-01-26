@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E31A835B1E36A31D008FEAA4 /* ResourceRequestCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31A835A1E36A31D008FEAA4 /* ResourceRequestCredential.swift */; };
-		E31A835D1E36A8C9008FEAA4 /* SampleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31A835C1E36A8C9008FEAA4 /* SampleResource.swift */; };
-		E31A83601E36ADF8008FEAA4 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31A835F1E36ADF8008FEAA4 /* JSONDecoder.swift */; };
+		E341BDBD1E397B2700DA5152 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDAE1E397B2700DA5152 /* JSONDecoder.swift */; };
+		E341BDBE1E397B2700DA5152 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB01E397B2700DA5152 /* JSONEncoder.swift */; };
+		E341BDBF1E397B2700DA5152 /* QueryStringEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB11E397B2700DA5152 /* QueryStringEncoder.swift */; };
+		E341BDC01E397B2700DA5152 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E341BDB21E397B2700DA5152 /* Info.plist */; };
+		E341BDC11E397B2700DA5152 /* PropellerNetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E341BDB31E397B2700DA5152 /* PropellerNetworkKit.h */; };
+		E341BDC21E397B2700DA5152 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB51E397B2700DA5152 /* ParameterEncoding.swift */; };
+		E341BDC31E397B2700DA5152 /* ResourceRequestConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB61E397B2700DA5152 /* ResourceRequestConfiguring.swift */; };
+		E341BDC41E397B2700DA5152 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB71E397B2700DA5152 /* Resource.swift */; };
+		E341BDC51E397B2700DA5152 /* ResourceRequestCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB81E397B2700DA5152 /* ResourceRequestCredential.swift */; };
+		E341BDC61E397B2700DA5152 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E341BDBA1E397B2700DA5152 /* Info.plist */; };
+		E341BDC71E397B2700DA5152 /* PropellerNetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */; };
+		E341BDC81E397B2700DA5152 /* SampleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBC1E397B2700DA5152 /* SampleResource.swift */; };
 		E3ECEF451E2FEA000038EDBA /* PropellerNetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ECEF3B1E2FEA000038EDBA /* PropellerNetworkKit.framework */; };
-		E3ECEF4A1E2FEA000038EDBA /* PropellerNetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECEF491E2FEA000038EDBA /* PropellerNetworkKitTests.swift */; };
-		E3ECEF4C1E2FEA000038EDBA /* PropellerNetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E3ECEF3E1E2FEA000038EDBA /* PropellerNetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E3ECEF561E2FEB130038EDBA /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECEF551E2FEB130038EDBA /* Resource.swift */; };
-		E3ECEF5C1E2FFD7E0038EDBA /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECEF5B1E2FFD7E0038EDBA /* ParameterEncoding.swift */; };
-		E3ECEF611E2FFDDC0038EDBA /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECEF601E2FFDDC0038EDBA /* JSONEncoder.swift */; };
-		E3ECEF631E2FFE130038EDBA /* QueryStringEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECEF621E2FFE130038EDBA /* QueryStringEncoder.swift */; };
-		E3ECEF711E303D740038EDBA /* ResourceRequestConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECEF701E303D740038EDBA /* ResourceRequestConfiguring.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,20 +33,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E31A835A1E36A31D008FEAA4 /* ResourceRequestCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestCredential.swift; sourceTree = "<group>"; };
-		E31A835C1E36A8C9008FEAA4 /* SampleResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleResource.swift; sourceTree = "<group>"; };
-		E31A835F1E36ADF8008FEAA4 /* JSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		E341BDAE1E397B2700DA5152 /* JSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		E341BDB01E397B2700DA5152 /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
+		E341BDB11E397B2700DA5152 /* QueryStringEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryStringEncoder.swift; sourceTree = "<group>"; };
+		E341BDB21E397B2700DA5152 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E341BDB31E397B2700DA5152 /* PropellerNetworkKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerNetworkKit.h; sourceTree = "<group>"; };
+		E341BDB51E397B2700DA5152 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		E341BDB61E397B2700DA5152 /* ResourceRequestConfiguring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestConfiguring.swift; sourceTree = "<group>"; };
+		E341BDB71E397B2700DA5152 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		E341BDB81E397B2700DA5152 /* ResourceRequestCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestCredential.swift; sourceTree = "<group>"; };
+		E341BDBA1E397B2700DA5152 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropellerNetworkKitTests.swift; sourceTree = "<group>"; };
+		E341BDBC1E397B2700DA5152 /* SampleResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleResource.swift; sourceTree = "<group>"; };
 		E3ECEF3B1E2FEA000038EDBA /* PropellerNetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PropellerNetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3ECEF3E1E2FEA000038EDBA /* PropellerNetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropellerNetworkKit.h; sourceTree = "<group>"; };
-		E3ECEF3F1E2FEA000038EDBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3ECEF441E2FEA000038EDBA /* PropellerNetworkKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PropellerNetworkKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3ECEF491E2FEA000038EDBA /* PropellerNetworkKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropellerNetworkKitTests.swift; sourceTree = "<group>"; };
-		E3ECEF4B1E2FEA000038EDBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E3ECEF551E2FEB130038EDBA /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
-		E3ECEF5B1E2FFD7E0038EDBA /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		E3ECEF601E2FFDDC0038EDBA /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
-		E3ECEF621E2FFE130038EDBA /* QueryStringEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryStringEncoder.swift; sourceTree = "<group>"; };
-		E3ECEF701E303D740038EDBA /* ResourceRequestConfiguring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestConfiguring.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,19 +68,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E31A835E1E36ADDA008FEAA4 /* Decoding */ = {
+		E341BDAC1E397B2700DA5152 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				E31A835F1E36ADF8008FEAA4 /* JSONDecoder.swift */,
+				E341BDAD1E397B2700DA5152 /* Decoding */,
+				E341BDAF1E397B2700DA5152 /* Encoding */,
+				E341BDB41E397B2700DA5152 /* Protocols */,
+				E341BDB21E397B2700DA5152 /* Info.plist */,
+				E341BDB31E397B2700DA5152 /* PropellerNetworkKit.h */,
+				E341BDB71E397B2700DA5152 /* Resource.swift */,
+				E341BDB81E397B2700DA5152 /* ResourceRequestCredential.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E341BDAD1E397B2700DA5152 /* Decoding */ = {
+			isa = PBXGroup;
+			children = (
+				E341BDAE1E397B2700DA5152 /* JSONDecoder.swift */,
 			);
 			path = Decoding;
+			sourceTree = "<group>";
+		};
+		E341BDAF1E397B2700DA5152 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				E341BDB01E397B2700DA5152 /* JSONEncoder.swift */,
+				E341BDB11E397B2700DA5152 /* QueryStringEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		E341BDB41E397B2700DA5152 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E341BDB51E397B2700DA5152 /* ParameterEncoding.swift */,
+				E341BDB61E397B2700DA5152 /* ResourceRequestConfiguring.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E341BDB91E397B2700DA5152 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E341BDBA1E397B2700DA5152 /* Info.plist */,
+				E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */,
+				E341BDBC1E397B2700DA5152 /* SampleResource.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		E3ECEF311E2FEA000038EDBA = {
 			isa = PBXGroup;
 			children = (
-				E3ECEF3D1E2FEA000038EDBA /* PropellerNetworkKit */,
-				E3ECEF481E2FEA000038EDBA /* PropellerNetworkKitTests */,
+				E341BDAC1E397B2700DA5152 /* Sources */,
+				E341BDB91E397B2700DA5152 /* Tests */,
 				E3ECEF3C1E2FEA000038EDBA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,56 +136,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E3ECEF3D1E2FEA000038EDBA /* PropellerNetworkKit */ = {
-			isa = PBXGroup;
-			children = (
-				E3ECEF6B1E301AC70038EDBA /* Extensions */,
-				E3ECEF5A1E2FFD6A0038EDBA /* Protocols */,
-				E31A835E1E36ADDA008FEAA4 /* Decoding */,
-				E3ECEF5F1E2FFDDC0038EDBA /* Encoding */,
-				E31A835A1E36A31D008FEAA4 /* ResourceRequestCredential.swift */,
-				E3ECEF551E2FEB130038EDBA /* Resource.swift */,
-				E3ECEF3E1E2FEA000038EDBA /* PropellerNetworkKit.h */,
-				E3ECEF3F1E2FEA000038EDBA /* Info.plist */,
-			);
-			path = PropellerNetworkKit;
-			sourceTree = "<group>";
-		};
-		E3ECEF481E2FEA000038EDBA /* PropellerNetworkKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				E3ECEF491E2FEA000038EDBA /* PropellerNetworkKitTests.swift */,
-				E3ECEF4B1E2FEA000038EDBA /* Info.plist */,
-				E31A835C1E36A8C9008FEAA4 /* SampleResource.swift */,
-			);
-			path = PropellerNetworkKitTests;
-			sourceTree = "<group>";
-		};
-		E3ECEF5A1E2FFD6A0038EDBA /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				E3ECEF5B1E2FFD7E0038EDBA /* ParameterEncoding.swift */,
-				E3ECEF701E303D740038EDBA /* ResourceRequestConfiguring.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		E3ECEF5F1E2FFDDC0038EDBA /* Encoding */ = {
-			isa = PBXGroup;
-			children = (
-				E3ECEF601E2FFDDC0038EDBA /* JSONEncoder.swift */,
-				E3ECEF621E2FFE130038EDBA /* QueryStringEncoder.swift */,
-			);
-			path = Encoding;
-			sourceTree = "<group>";
-		};
-		E3ECEF6B1E301AC70038EDBA /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -149,7 +143,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3ECEF4C1E2FEA000038EDBA /* PropellerNetworkKit.h in Headers */,
+				E341BDC11E397B2700DA5152 /* PropellerNetworkKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +230,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E341BDC61E397B2700DA5152 /* Info.plist in Resources */,
+				E341BDC01E397B2700DA5152 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,13 +249,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3ECEF631E2FFE130038EDBA /* QueryStringEncoder.swift in Sources */,
-				E3ECEF5C1E2FFD7E0038EDBA /* ParameterEncoding.swift in Sources */,
-				E3ECEF711E303D740038EDBA /* ResourceRequestConfiguring.swift in Sources */,
-				E3ECEF561E2FEB130038EDBA /* Resource.swift in Sources */,
-				E31A83601E36ADF8008FEAA4 /* JSONDecoder.swift in Sources */,
-				E31A835B1E36A31D008FEAA4 /* ResourceRequestCredential.swift in Sources */,
-				E3ECEF611E2FFDDC0038EDBA /* JSONEncoder.swift in Sources */,
+				E341BDBF1E397B2700DA5152 /* QueryStringEncoder.swift in Sources */,
+				E341BDBE1E397B2700DA5152 /* JSONEncoder.swift in Sources */,
+				E341BDC21E397B2700DA5152 /* ParameterEncoding.swift in Sources */,
+				E341BDC71E397B2700DA5152 /* PropellerNetworkKitTests.swift in Sources */,
+				E341BDC41E397B2700DA5152 /* Resource.swift in Sources */,
+				E341BDC51E397B2700DA5152 /* ResourceRequestCredential.swift in Sources */,
+				E341BDC31E397B2700DA5152 /* ResourceRequestConfiguring.swift in Sources */,
+				E341BDBD1E397B2700DA5152 /* JSONDecoder.swift in Sources */,
+				E341BDC81E397B2700DA5152 /* SampleResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +265,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3ECEF4A1E2FEA000038EDBA /* PropellerNetworkKitTests.swift in Sources */,
-				E31A835D1E36A8C9008FEAA4 /* SampleResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
