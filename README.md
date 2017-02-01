@@ -1,3 +1,11 @@
+![Travis](https://api.travis-ci.org/propellerlabs/PropellerNetwork.svg?branch=master)
+![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
+![Swift](https://img.shields.io/badge/language-swift-orange.svg)
+![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
+![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)
+![MIT License](https://img.shields.io/badge/license-MIT-000000.svg)
+
+
 # PropellerNetwork
 Networking layer for Propeller iOS projects
 
@@ -7,7 +15,7 @@ Networking layer for Propeller iOS projects
 
 ```Swift
 dependencies: [
-    .Package(url: "https://github.com/propellerlabs/PropellerNetwork.git", majorVersion: 1)
+.Package(url: "https://github.com/propellerlabs/PropellerNetwork.git", majorVersion: 1)
 ]
 ```
 
@@ -20,19 +28,19 @@ A resource request configuration should conform to `ResourceRequestConfiguring`.
 
 ``` Swift
 struct NetworkConfiguration: ResourceRequestConfiguring {
-    static let `default` = NetworkConfiguration()
-    
-    var basePath: String {
-        return "https://httpbin.org"
-    }
-    
-    var additionalHeaders: [String : String]? {
-        return nil
-    }
-    
-    var credential: ResourceRequestCredential? {
-        return nil
-    }
+static let `default` = NetworkConfiguration()
+
+var basePath: String {
+return "https://httpbin.org"
+}
+
+var additionalHeaders: [String : String]? {
+return nil
+}
+
+var credential: ResourceRequestCredential? {
+return nil
+}
 }
 ```
 
@@ -41,32 +49,32 @@ A resource encapsulates the expected return type, URL path, HTTP method, paramet
 
 ``` Swift
 init(urlPath: String, 
-     method: PropellerNetwork.HTTPMethod = .get, 
-     parameters: Parameters? = nil, 
-     headers: [String : String]? = nil, 
-     encoding: ParameterEncoding = JSONEncoder.default, 
-     parsing: ((JSONObject) -> A?)? = nil)
+method: PropellerNetwork.HTTPMethod = .get, 
+parameters: Parameters? = nil, 
+headers: [String : String]? = nil, 
+encoding: ParameterEncoding = JSONEncoder.default, 
+parsing: ((JSONObject) -> A?)? = nil)
 ```
 
 #### Example
 ```Swift
 let resource = Resource<T>(urlPath: "/get",
-                           parsing: { json in
-                              // Parse JSON to your object `T`
-                           })
+parsing: { json in
+// Parse JSON to your object `T`
+})
 ```
 
 ### Request a resource
 After setting up your resource, request it!
 
 ```Swift
-  request(completion: (T?, Error?) -> Void)
+request(completion: (T?, Error?) -> Void)
 ```
 
 ####Example
 ```Swift
-  resource.request { object, error in
-      print(object)
-      print(error)
-  }
+resource.request { object, error in
+print(object)
+print(error)
+}
 ```
