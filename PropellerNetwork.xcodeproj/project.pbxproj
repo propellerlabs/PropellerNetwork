@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E30B2FE51E42529900B5BA2B /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FDA1E42529900B5BA2B /* JSONDecoder.swift */; };
-		E30B2FE61E42529900B5BA2B /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FDC1E42529900B5BA2B /* JSONEncoder.swift */; };
-		E30B2FE71E42529900B5BA2B /* QueryStringEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FDD1E42529900B5BA2B /* QueryStringEncoder.swift */; };
 		E30B2FE91E42529900B5BA2B /* PropellerNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = E30B2FDF1E42529900B5BA2B /* PropellerNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E30B2FEA1E42529900B5BA2B /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE11E42529900B5BA2B /* ParameterEncoding.swift */; };
-		E30B2FEB1E42529900B5BA2B /* ResourceRequestConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE21E42529900B5BA2B /* ResourceRequestConfiguring.swift */; };
 		E30B2FEC1E42529900B5BA2B /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE31E42529900B5BA2B /* Resource.swift */; };
 		E30B2FED1E42529900B5BA2B /* ResourceRequestCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE41E42529900B5BA2B /* ResourceRequestCredential.swift */; };
 		E30B2FEF1E4252E900B5BA2B /* PropellerNetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */; };
 		E30B2FF01E4252EC00B5BA2B /* SampleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBC1E397B2700DA5152 /* SampleResource.swift */; };
+		E3103A6E1E4287AE00D7EA0E /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3103A6D1E4287AE00D7EA0E /* JSONDecoder.swift */; };
+		E3103A711E4287C800D7EA0E /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3103A6F1E4287C800D7EA0E /* JSONEncoder.swift */; };
+		E3103A721E4287C800D7EA0E /* QueryStringEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3103A701E4287C800D7EA0E /* QueryStringEncoder.swift */; };
+		E3103A751E4287D500D7EA0E /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3103A731E4287D500D7EA0E /* ParameterEncoding.swift */; };
+		E3103A761E4287D500D7EA0E /* ResourceRequestConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3103A741E4287D500D7EA0E /* ResourceRequestConfiguring.swift */; };
 		E3ECEF451E2FEA000038EDBA /* PropellerNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ECEF3B1E2FEA000038EDBA /* PropellerNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,15 +31,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E30B2FDA1E42529900B5BA2B /* JSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
-		E30B2FDC1E42529900B5BA2B /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
-		E30B2FDD1E42529900B5BA2B /* QueryStringEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryStringEncoder.swift; sourceTree = "<group>"; };
 		E30B2FDE1E42529900B5BA2B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E30B2FDF1E42529900B5BA2B /* PropellerNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerNetwork.h; sourceTree = "<group>"; };
-		E30B2FE11E42529900B5BA2B /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		E30B2FE21E42529900B5BA2B /* ResourceRequestConfiguring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestConfiguring.swift; sourceTree = "<group>"; };
 		E30B2FE31E42529900B5BA2B /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		E30B2FE41E42529900B5BA2B /* ResourceRequestCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestCredential.swift; sourceTree = "<group>"; };
+		E3103A6D1E4287AE00D7EA0E /* JSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecoder.swift; path = Source/JSONDecoder.swift; sourceTree = SOURCE_ROOT; };
+		E3103A6F1E4287C800D7EA0E /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONEncoder.swift; path = Source/JSONEncoder.swift; sourceTree = SOURCE_ROOT; };
+		E3103A701E4287C800D7EA0E /* QueryStringEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QueryStringEncoder.swift; path = Source/QueryStringEncoder.swift; sourceTree = SOURCE_ROOT; };
+		E3103A731E4287D500D7EA0E /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = SOURCE_ROOT; };
+		E3103A741E4287D500D7EA0E /* ResourceRequestConfiguring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceRequestConfiguring.swift; path = Source/ResourceRequestConfiguring.swift; sourceTree = SOURCE_ROOT; };
 		E341BDBA1E397B2700DA5152 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropellerNetworkKitTests.swift; sourceTree = "<group>"; };
 		E341BDBC1E397B2700DA5152 /* SampleResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleResource.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		E30B2FD91E42529900B5BA2B /* Decoding */ = {
 			isa = PBXGroup;
 			children = (
-				E30B2FDA1E42529900B5BA2B /* JSONDecoder.swift */,
+				E3103A6D1E4287AE00D7EA0E /* JSONDecoder.swift */,
 			);
 			path = Decoding;
 			sourceTree = "<group>";
@@ -91,8 +91,8 @@
 		E30B2FDB1E42529900B5BA2B /* Encoding */ = {
 			isa = PBXGroup;
 			children = (
-				E30B2FDC1E42529900B5BA2B /* JSONEncoder.swift */,
-				E30B2FDD1E42529900B5BA2B /* QueryStringEncoder.swift */,
+				E3103A6F1E4287C800D7EA0E /* JSONEncoder.swift */,
+				E3103A701E4287C800D7EA0E /* QueryStringEncoder.swift */,
 			);
 			path = Encoding;
 			sourceTree = "<group>";
@@ -100,8 +100,8 @@
 		E30B2FE01E42529900B5BA2B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				E30B2FE11E42529900B5BA2B /* ParameterEncoding.swift */,
-				E30B2FE21E42529900B5BA2B /* ResourceRequestConfiguring.swift */,
+				E3103A731E4287D500D7EA0E /* ParameterEncoding.swift */,
+				E3103A741E4287D500D7EA0E /* ResourceRequestConfiguring.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -245,13 +245,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3103A721E4287C800D7EA0E /* QueryStringEncoder.swift in Sources */,
 				E30B2FED1E42529900B5BA2B /* ResourceRequestCredential.swift in Sources */,
-				E30B2FEA1E42529900B5BA2B /* ParameterEncoding.swift in Sources */,
+				E3103A761E4287D500D7EA0E /* ResourceRequestConfiguring.swift in Sources */,
+				E3103A751E4287D500D7EA0E /* ParameterEncoding.swift in Sources */,
 				E30B2FEC1E42529900B5BA2B /* Resource.swift in Sources */,
-				E30B2FE71E42529900B5BA2B /* QueryStringEncoder.swift in Sources */,
-				E30B2FEB1E42529900B5BA2B /* ResourceRequestConfiguring.swift in Sources */,
-				E30B2FE51E42529900B5BA2B /* JSONDecoder.swift in Sources */,
-				E30B2FE61E42529900B5BA2B /* JSONEncoder.swift in Sources */,
+				E3103A6E1E4287AE00D7EA0E /* JSONDecoder.swift in Sources */,
+				E3103A711E4287C800D7EA0E /* JSONEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
