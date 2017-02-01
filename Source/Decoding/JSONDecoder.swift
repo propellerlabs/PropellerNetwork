@@ -1,6 +1,6 @@
 //
 //  JSONDecoder.swift
-//  PropellerNetworkKit
+//  PropellerNetwork
 //
 //  Created by Roy McKenzie on 1/23/17.
 //  Copyright © 2017 Propeller. All rights reserved.

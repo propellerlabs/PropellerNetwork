@@ -1,6 +1,6 @@
 //
 //  Resource.swift
-//  PropellerNetworkKit
+//  PropellerNetwork
 //
 //  Created by Roy McKenzie on 1/18/17.
 //  Copyright © 2017 Propeller. All rights reserved.

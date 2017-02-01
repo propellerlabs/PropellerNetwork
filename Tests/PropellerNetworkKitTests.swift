@@ -1,6 +1,6 @@
 //
-//  PropellerNetworkKitTests.swift
-//  PropellerNetworkKitTests
+//  PropellerNetworkTests.swift
+//  PropellerNetworkTests
 //
 //  Created by Roy McKenzie on 1/18/17.
 //  Copyright © 2017 Propeller. All rights reserved.
@@ -11,7 +11,7 @@ import XCTest
 
 let timeout: TimeInterval = 10 //seconds for timeout
 
-class PropellerNetworkKitTests: XCTestCase {
+class PropellerNetworkTests: XCTestCase {
     
     func testResourceParseSuccessful() {
         

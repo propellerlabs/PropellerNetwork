@@ -10,7 +10,7 @@
 		E30B2FE51E42529900B5BA2B /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FDA1E42529900B5BA2B /* JSONDecoder.swift */; };
 		E30B2FE61E42529900B5BA2B /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FDC1E42529900B5BA2B /* JSONEncoder.swift */; };
 		E30B2FE71E42529900B5BA2B /* QueryStringEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FDD1E42529900B5BA2B /* QueryStringEncoder.swift */; };
-		E30B2FE91E42529900B5BA2B /* PropellerNetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E30B2FDF1E42529900B5BA2B /* PropellerNetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E30B2FE91E42529900B5BA2B /* PropellerNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = E30B2FDF1E42529900B5BA2B /* PropellerNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E30B2FEA1E42529900B5BA2B /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE11E42529900B5BA2B /* ParameterEncoding.swift */; };
 		E30B2FEB1E42529900B5BA2B /* ResourceRequestConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE21E42529900B5BA2B /* ResourceRequestConfiguring.swift */; };
 		E30B2FEC1E42529900B5BA2B /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE31E42529900B5BA2B /* Resource.swift */; };
@@ -35,7 +35,7 @@
 		E30B2FDC1E42529900B5BA2B /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
 		E30B2FDD1E42529900B5BA2B /* QueryStringEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryStringEncoder.swift; sourceTree = "<group>"; };
 		E30B2FDE1E42529900B5BA2B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E30B2FDF1E42529900B5BA2B /* PropellerNetworkKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerNetworkKit.h; sourceTree = "<group>"; };
+		E30B2FDF1E42529900B5BA2B /* PropellerNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerNetwork.h; sourceTree = "<group>"; };
 		E30B2FE11E42529900B5BA2B /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		E30B2FE21E42529900B5BA2B /* ResourceRequestConfiguring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestConfiguring.swift; sourceTree = "<group>"; };
 		E30B2FE31E42529900B5BA2B /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 				E30B2FE01E42529900B5BA2B /* Protocols */,
 				E30B2FE31E42529900B5BA2B /* Resource.swift */,
 				E30B2FE41E42529900B5BA2B /* ResourceRequestCredential.swift */,
-				E30B2FDF1E42529900B5BA2B /* PropellerNetworkKit.h */,
+				E30B2FDF1E42529900B5BA2B /* PropellerNetwork.h */,
 				E30B2FDE1E42529900B5BA2B /* Info.plist */,
 			);
 			path = Source;
@@ -141,7 +141,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E30B2FE91E42529900B5BA2B /* PropellerNetworkKit.h in Headers */,
+				E30B2FE91E42529900B5BA2B /* PropellerNetwork.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +386,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkKit;
+				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -406,7 +406,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkKit;
+				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -419,7 +419,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -431,7 +431,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
