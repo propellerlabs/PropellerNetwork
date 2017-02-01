@@ -1,6 +1,6 @@
 import PackageDescription
 
 let package = Package(
-	name: "PropellerNetworkKit",
+	name: "PropellerNetwork",
 	exclude: ["Tests"]
 )
