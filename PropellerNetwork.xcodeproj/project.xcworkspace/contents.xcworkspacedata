@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PropellerNetworkKit.xcodeproj">
+      location = "self:/Users/roymckenzie/Development/PropellerNetwork/PropellerNetwork.xcodeproj">
    </FileRef>
 </Workspace>

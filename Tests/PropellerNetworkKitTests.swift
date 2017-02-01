@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PropellerNetworkKit
+@testable import PropellerNetwork
 
 let timeout: TimeInterval = 10 //seconds for timeout
 

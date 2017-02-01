@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E341BDBD1E397B2700DA5152 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDAE1E397B2700DA5152 /* JSONDecoder.swift */; };
-		E341BDBE1E397B2700DA5152 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB01E397B2700DA5152 /* JSONEncoder.swift */; };
-		E341BDBF1E397B2700DA5152 /* QueryStringEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB11E397B2700DA5152 /* QueryStringEncoder.swift */; };
-		E341BDC01E397B2700DA5152 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E341BDB21E397B2700DA5152 /* Info.plist */; };
-		E341BDC11E397B2700DA5152 /* PropellerNetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E341BDB31E397B2700DA5152 /* PropellerNetworkKit.h */; };
-		E341BDC21E397B2700DA5152 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB51E397B2700DA5152 /* ParameterEncoding.swift */; };
-		E341BDC31E397B2700DA5152 /* ResourceRequestConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB61E397B2700DA5152 /* ResourceRequestConfiguring.swift */; };
-		E341BDC41E397B2700DA5152 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB71E397B2700DA5152 /* Resource.swift */; };
-		E341BDC51E397B2700DA5152 /* ResourceRequestCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDB81E397B2700DA5152 /* ResourceRequestCredential.swift */; };
-		E341BDC61E397B2700DA5152 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E341BDBA1E397B2700DA5152 /* Info.plist */; };
-		E341BDC71E397B2700DA5152 /* PropellerNetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */; };
-		E341BDC81E397B2700DA5152 /* SampleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBC1E397B2700DA5152 /* SampleResource.swift */; };
-		E3ECEF451E2FEA000038EDBA /* PropellerNetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ECEF3B1E2FEA000038EDBA /* PropellerNetworkKit.framework */; };
+		E30B2FE51E42529900B5BA2B /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FDA1E42529900B5BA2B /* JSONDecoder.swift */; };
+		E30B2FE61E42529900B5BA2B /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FDC1E42529900B5BA2B /* JSONEncoder.swift */; };
+		E30B2FE71E42529900B5BA2B /* QueryStringEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FDD1E42529900B5BA2B /* QueryStringEncoder.swift */; };
+		E30B2FE91E42529900B5BA2B /* PropellerNetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E30B2FDF1E42529900B5BA2B /* PropellerNetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E30B2FEA1E42529900B5BA2B /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE11E42529900B5BA2B /* ParameterEncoding.swift */; };
+		E30B2FEB1E42529900B5BA2B /* ResourceRequestConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE21E42529900B5BA2B /* ResourceRequestConfiguring.swift */; };
+		E30B2FEC1E42529900B5BA2B /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE31E42529900B5BA2B /* Resource.swift */; };
+		E30B2FED1E42529900B5BA2B /* ResourceRequestCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE41E42529900B5BA2B /* ResourceRequestCredential.swift */; };
+		E30B2FEE1E4252E700B5BA2B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E341BDBA1E397B2700DA5152 /* Info.plist */; };
+		E30B2FEF1E4252E900B5BA2B /* PropellerNetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */; };
+		E30B2FF01E4252EC00B5BA2B /* SampleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBC1E397B2700DA5152 /* SampleResource.swift */; };
+		E3ECEF451E2FEA000038EDBA /* PropellerNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ECEF3B1E2FEA000038EDBA /* PropellerNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,20 +32,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E341BDAE1E397B2700DA5152 /* JSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
-		E341BDB01E397B2700DA5152 /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
-		E341BDB11E397B2700DA5152 /* QueryStringEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryStringEncoder.swift; sourceTree = "<group>"; };
-		E341BDB21E397B2700DA5152 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E341BDB31E397B2700DA5152 /* PropellerNetworkKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerNetworkKit.h; sourceTree = "<group>"; };
-		E341BDB51E397B2700DA5152 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		E341BDB61E397B2700DA5152 /* ResourceRequestConfiguring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestConfiguring.swift; sourceTree = "<group>"; };
-		E341BDB71E397B2700DA5152 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
-		E341BDB81E397B2700DA5152 /* ResourceRequestCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestCredential.swift; sourceTree = "<group>"; };
+		E30B2FDA1E42529900B5BA2B /* JSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		E30B2FDC1E42529900B5BA2B /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
+		E30B2FDD1E42529900B5BA2B /* QueryStringEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryStringEncoder.swift; sourceTree = "<group>"; };
+		E30B2FDE1E42529900B5BA2B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E30B2FDF1E42529900B5BA2B /* PropellerNetworkKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerNetworkKit.h; sourceTree = "<group>"; };
+		E30B2FE11E42529900B5BA2B /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		E30B2FE21E42529900B5BA2B /* ResourceRequestConfiguring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestConfiguring.swift; sourceTree = "<group>"; };
+		E30B2FE31E42529900B5BA2B /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		E30B2FE41E42529900B5BA2B /* ResourceRequestCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceRequestCredential.swift; sourceTree = "<group>"; };
 		E341BDBA1E397B2700DA5152 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropellerNetworkKitTests.swift; sourceTree = "<group>"; };
 		E341BDBC1E397B2700DA5152 /* SampleResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleResource.swift; sourceTree = "<group>"; };
-		E3ECEF3B1E2FEA000038EDBA /* PropellerNetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PropellerNetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3ECEF441E2FEA000038EDBA /* PropellerNetworkKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PropellerNetworkKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3ECEF3B1E2FEA000038EDBA /* PropellerNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PropellerNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3ECEF441E2FEA000038EDBA /* PropellerNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PropellerNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,49 +60,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3ECEF451E2FEA000038EDBA /* PropellerNetworkKit.framework in Frameworks */,
+				E3ECEF451E2FEA000038EDBA /* PropellerNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E341BDAC1E397B2700DA5152 /* Sources */ = {
+		E30B2FD81E42529900B5BA2B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				E341BDAD1E397B2700DA5152 /* Decoding */,
-				E341BDAF1E397B2700DA5152 /* Encoding */,
-				E341BDB41E397B2700DA5152 /* Protocols */,
-				E341BDB21E397B2700DA5152 /* Info.plist */,
-				E341BDB31E397B2700DA5152 /* PropellerNetworkKit.h */,
-				E341BDB71E397B2700DA5152 /* Resource.swift */,
-				E341BDB81E397B2700DA5152 /* ResourceRequestCredential.swift */,
+				E30B2FD91E42529900B5BA2B /* Decoding */,
+				E30B2FDB1E42529900B5BA2B /* Encoding */,
+				E30B2FE01E42529900B5BA2B /* Protocols */,
+				E30B2FE31E42529900B5BA2B /* Resource.swift */,
+				E30B2FE41E42529900B5BA2B /* ResourceRequestCredential.swift */,
+				E30B2FDF1E42529900B5BA2B /* PropellerNetworkKit.h */,
+				E30B2FDE1E42529900B5BA2B /* Info.plist */,
 			);
-			path = Sources;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		E341BDAD1E397B2700DA5152 /* Decoding */ = {
+		E30B2FD91E42529900B5BA2B /* Decoding */ = {
 			isa = PBXGroup;
 			children = (
-				E341BDAE1E397B2700DA5152 /* JSONDecoder.swift */,
+				E30B2FDA1E42529900B5BA2B /* JSONDecoder.swift */,
 			);
 			path = Decoding;
 			sourceTree = "<group>";
 		};
-		E341BDAF1E397B2700DA5152 /* Encoding */ = {
+		E30B2FDB1E42529900B5BA2B /* Encoding */ = {
 			isa = PBXGroup;
 			children = (
-				E341BDB01E397B2700DA5152 /* JSONEncoder.swift */,
-				E341BDB11E397B2700DA5152 /* QueryStringEncoder.swift */,
+				E30B2FDC1E42529900B5BA2B /* JSONEncoder.swift */,
+				E30B2FDD1E42529900B5BA2B /* QueryStringEncoder.swift */,
 			);
 			path = Encoding;
 			sourceTree = "<group>";
 		};
-		E341BDB41E397B2700DA5152 /* Protocols */ = {
+		E30B2FE01E42529900B5BA2B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				E341BDB51E397B2700DA5152 /* ParameterEncoding.swift */,
-				E341BDB61E397B2700DA5152 /* ResourceRequestConfiguring.swift */,
+				E30B2FE11E42529900B5BA2B /* ParameterEncoding.swift */,
+				E30B2FE21E42529900B5BA2B /* ResourceRequestConfiguring.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -121,7 +120,7 @@
 		E3ECEF311E2FEA000038EDBA = {
 			isa = PBXGroup;
 			children = (
-				E341BDAC1E397B2700DA5152 /* Sources */,
+				E30B2FD81E42529900B5BA2B /* Source */,
 				E341BDB91E397B2700DA5152 /* Tests */,
 				E3ECEF3C1E2FEA000038EDBA /* Products */,
 			);
@@ -130,8 +129,8 @@
 		E3ECEF3C1E2FEA000038EDBA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E3ECEF3B1E2FEA000038EDBA /* PropellerNetworkKit.framework */,
-				E3ECEF441E2FEA000038EDBA /* PropellerNetworkKitTests.xctest */,
+				E3ECEF3B1E2FEA000038EDBA /* PropellerNetwork.framework */,
+				E3ECEF441E2FEA000038EDBA /* PropellerNetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,16 +142,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E341BDC11E397B2700DA5152 /* PropellerNetworkKit.h in Headers */,
+				E30B2FE91E42529900B5BA2B /* PropellerNetworkKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E3ECEF3A1E2FEA000038EDBA /* PropellerNetworkKit */ = {
+		E3ECEF3A1E2FEA000038EDBA /* PropellerNetwork */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E3ECEF4F1E2FEA000038EDBA /* Build configuration list for PBXNativeTarget "PropellerNetworkKit" */;
+			buildConfigurationList = E3ECEF4F1E2FEA000038EDBA /* Build configuration list for PBXNativeTarget "PropellerNetwork" */;
 			buildPhases = (
 				E3ECEF361E2FEA000038EDBA /* Sources */,
 				E3ECEF371E2FEA000038EDBA /* Frameworks */,
@@ -163,14 +162,14 @@
 			);
 			dependencies = (
 			);
-			name = PropellerNetworkKit;
+			name = PropellerNetwork;
 			productName = PropellerNetworkKit;
-			productReference = E3ECEF3B1E2FEA000038EDBA /* PropellerNetworkKit.framework */;
+			productReference = E3ECEF3B1E2FEA000038EDBA /* PropellerNetwork.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E3ECEF431E2FEA000038EDBA /* PropellerNetworkKitTests */ = {
+		E3ECEF431E2FEA000038EDBA /* PropellerNetworkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E3ECEF521E2FEA000038EDBA /* Build configuration list for PBXNativeTarget "PropellerNetworkKitTests" */;
+			buildConfigurationList = E3ECEF521E2FEA000038EDBA /* Build configuration list for PBXNativeTarget "PropellerNetworkTests" */;
 			buildPhases = (
 				E3ECEF401E2FEA000038EDBA /* Sources */,
 				E3ECEF411E2FEA000038EDBA /* Frameworks */,
@@ -181,9 +180,9 @@
 			dependencies = (
 				E3ECEF471E2FEA000038EDBA /* PBXTargetDependency */,
 			);
-			name = PropellerNetworkKitTests;
+			name = PropellerNetworkTests;
 			productName = PropellerNetworkKitTests;
-			productReference = E3ECEF441E2FEA000038EDBA /* PropellerNetworkKitTests.xctest */;
+			productReference = E3ECEF441E2FEA000038EDBA /* PropellerNetworkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +206,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E3ECEF351E2FEA000038EDBA /* Build configuration list for PBXProject "PropellerNetworkKit" */;
+			buildConfigurationList = E3ECEF351E2FEA000038EDBA /* Build configuration list for PBXProject "PropellerNetwork" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -219,8 +218,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E3ECEF3A1E2FEA000038EDBA /* PropellerNetworkKit */,
-				E3ECEF431E2FEA000038EDBA /* PropellerNetworkKitTests */,
+				E3ECEF3A1E2FEA000038EDBA /* PropellerNetwork */,
+				E3ECEF431E2FEA000038EDBA /* PropellerNetworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -230,8 +229,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E341BDC61E397B2700DA5152 /* Info.plist in Resources */,
-				E341BDC01E397B2700DA5152 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E30B2FEE1E4252E700B5BA2B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,15 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E341BDBF1E397B2700DA5152 /* QueryStringEncoder.swift in Sources */,
-				E341BDBE1E397B2700DA5152 /* JSONEncoder.swift in Sources */,
-				E341BDC21E397B2700DA5152 /* ParameterEncoding.swift in Sources */,
-				E341BDC71E397B2700DA5152 /* PropellerNetworkKitTests.swift in Sources */,
-				E341BDC41E397B2700DA5152 /* Resource.swift in Sources */,
-				E341BDC51E397B2700DA5152 /* ResourceRequestCredential.swift in Sources */,
-				E341BDC31E397B2700DA5152 /* ResourceRequestConfiguring.swift in Sources */,
-				E341BDBD1E397B2700DA5152 /* JSONDecoder.swift in Sources */,
-				E341BDC81E397B2700DA5152 /* SampleResource.swift in Sources */,
+				E30B2FED1E42529900B5BA2B /* ResourceRequestCredential.swift in Sources */,
+				E30B2FEA1E42529900B5BA2B /* ParameterEncoding.swift in Sources */,
+				E30B2FEC1E42529900B5BA2B /* Resource.swift in Sources */,
+				E30B2FE71E42529900B5BA2B /* QueryStringEncoder.swift in Sources */,
+				E30B2FEB1E42529900B5BA2B /* ResourceRequestConfiguring.swift in Sources */,
+				E30B2FE51E42529900B5BA2B /* JSONDecoder.swift in Sources */,
+				E30B2FE61E42529900B5BA2B /* JSONEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E30B2FEF1E4252E900B5BA2B /* PropellerNetworkKitTests.swift in Sources */,
+				E30B2FF01E4252EC00B5BA2B /* SampleResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +271,7 @@
 /* Begin PBXTargetDependency section */
 		E3ECEF471E2FEA000038EDBA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E3ECEF3A1E2FEA000038EDBA /* PropellerNetworkKit */;
+			target = E3ECEF3A1E2FEA000038EDBA /* PropellerNetwork */;
 			targetProxy = E3ECEF461E2FEA000038EDBA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -387,7 +385,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = PropellerNetworkKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkKit;
@@ -407,7 +405,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = PropellerNetworkKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkKit;
@@ -444,7 +442,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E3ECEF351E2FEA000038EDBA /* Build configuration list for PBXProject "PropellerNetworkKit" */ = {
+		E3ECEF351E2FEA000038EDBA /* Build configuration list for PBXProject "PropellerNetwork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3ECEF4D1E2FEA000038EDBA /* Debug */,
@@ -453,7 +451,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E3ECEF4F1E2FEA000038EDBA /* Build configuration list for PBXNativeTarget "PropellerNetworkKit" */ = {
+		E3ECEF4F1E2FEA000038EDBA /* Build configuration list for PBXNativeTarget "PropellerNetwork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3ECEF501E2FEA000038EDBA /* Debug */,
@@ -462,7 +460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E3ECEF521E2FEA000038EDBA /* Build configuration list for PBXNativeTarget "PropellerNetworkKitTests" */ = {
+		E3ECEF521E2FEA000038EDBA /* Build configuration list for PBXNativeTarget "PropellerNetworkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3ECEF531E2FEA000038EDBA /* Debug */,
