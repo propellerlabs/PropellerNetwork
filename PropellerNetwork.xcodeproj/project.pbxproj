@@ -15,7 +15,6 @@
 		E30B2FEB1E42529900B5BA2B /* ResourceRequestConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE21E42529900B5BA2B /* ResourceRequestConfiguring.swift */; };
 		E30B2FEC1E42529900B5BA2B /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE31E42529900B5BA2B /* Resource.swift */; };
 		E30B2FED1E42529900B5BA2B /* ResourceRequestCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE41E42529900B5BA2B /* ResourceRequestCredential.swift */; };
-		E30B2FEE1E4252E700B5BA2B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E341BDBA1E397B2700DA5152 /* Info.plist */; };
 		E30B2FEF1E4252E900B5BA2B /* PropellerNetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */; };
 		E30B2FF01E4252EC00B5BA2B /* SampleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBC1E397B2700DA5152 /* SampleResource.swift */; };
 		E3ECEF451E2FEA000038EDBA /* PropellerNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ECEF3B1E2FEA000038EDBA /* PropellerNetwork.framework */; };
@@ -236,7 +235,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E30B2FEE1E4252E700B5BA2B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = PropellerNetworkKitTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,7 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = PropellerNetworkKitTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.propellerlabs.PropellerNetworkKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

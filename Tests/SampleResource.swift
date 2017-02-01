@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import PropellerNetworkKit
+@testable import PropellerNetwork
 
 struct User {
     let name: String
