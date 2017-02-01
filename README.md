@@ -14,9 +14,9 @@ Networking layer for Propeller iOS projects
 ## Swift Package Manager
 
 ```Swift
-dependencies: [
-.Package(url: "https://github.com/propellerlabs/PropellerNetwork.git", majorVersion: 1)
-]
+    dependencies: [
+        .Package(url: "https://github.com/propellerlabs/PropellerNetwork.git", majorVersion: 1)
+    ]
 ```
 
 ## Usage
@@ -28,19 +28,19 @@ A resource request configuration should conform to `ResourceRequestConfiguring`.
 
 ``` Swift
 struct NetworkConfiguration: ResourceRequestConfiguring {
-static let `default` = NetworkConfiguration()
+    static let `default` = NetworkConfiguration()
 
-var basePath: String {
-return "https://httpbin.org"
-}
+    var basePath: String {
+        return "https://httpbin.org"
+    }
 
-var additionalHeaders: [String : String]? {
-return nil
-}
+    var additionalHeaders: [String : String]? {
+        return nil
+    }
 
-var credential: ResourceRequestCredential? {
-return nil
-}
+    var credential: ResourceRequestCredential? {
+        return nil
+    }
 }
 ```
 
@@ -48,20 +48,20 @@ return nil
 A resource encapsulates the expected return type, URL path, HTTP method, parameters, headers, encoding and parsing to handle the specific network request.
 
 ``` Swift
-init(urlPath: String, 
-method: PropellerNetwork.HTTPMethod = .get, 
-parameters: Parameters? = nil, 
-headers: [String : String]? = nil, 
-encoding: ParameterEncoding = JSONEncoder.default, 
-parsing: ((JSONObject) -> A?)? = nil)
+init(urlPath: String,
+     method: PropellerNetwork.HTTPMethod = .get,
+     parameters: Parameters? = nil, 
+     headers: [String : String]? = nil, 
+     encoding: ParameterEncoding = JSONEncoder.default, 
+     parsing: ((JSONObject) -> A?)? = nil)
 ```
 
 #### Example
 ```Swift
 let resource = Resource<T>(urlPath: "/get",
-parsing: { json in
-// Parse JSON to your object `T`
-})
+                           parsing: { json in
+                                // Parse JSON to your object `T`
+                           })
 ```
 
 ### Request a resource
@@ -74,7 +74,7 @@ request(completion: (T?, Error?) -> Void)
 ####Example
 ```Swift
 resource.request { object, error in
-print(object)
-print(error)
+    print(object)
+    print(error)
 }
 ```
