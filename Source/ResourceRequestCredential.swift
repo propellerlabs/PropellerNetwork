@@ -9,7 +9,7 @@
 import Foundation
 
 private let APICredentialsAccessTokenKey = "APICredentialsAccessTokenKey"
-struct ResourceRequestCredential {
+public struct ResourceRequestCredential {
     /// The key for the authorization header
     let authHeaderKey: String
     

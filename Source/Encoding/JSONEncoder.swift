@@ -14,10 +14,10 @@ enum JSONEncoderError: Error {
 
 /// Handles converting a JSON object into data for transmission in 
 /// `URLRequest`
-struct JSONEncoder: ParameterEncoding {
+public struct JSONEncoder: ParameterEncoding {
     public static var `default`: JSONEncoder = JSONEncoder()
     
-    func encode(_ request: URLRequest, parameters: Parameters) throws -> URLRequest {
+    public func encode(_ request: URLRequest, parameters: Parameters) throws -> URLRequest {
         var request = request
         
         // Make sure object is valid JSON

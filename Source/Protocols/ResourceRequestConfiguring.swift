@@ -13,7 +13,7 @@ enum ResourceRequestConfigurationError: Error {
 }
 
 /// Protocol for configuring a `URLRequest` for a resource credentials on a request
-protocol ResourceRequestConfiguring {    
+public protocol ResourceRequestConfiguring {
     var basePath: String { get }
     var additionalHeaders: [String: String]? { get }
     var credential: ResourceRequestCredential? { get }

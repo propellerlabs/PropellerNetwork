@@ -8,8 +8,8 @@
 
 import Foundation
 
-typealias JSONObject = [String: Any]
-typealias Parameters = [String: Any]
+public typealias JSONObject = [String: Any]
+public typealias Parameters = [String: Any]
 typealias HTTPHeaders = [String: String]
 
 /// WebService error
@@ -21,7 +21,7 @@ enum WebServiceError: Error {
 }
 
 /// HTTP method mapping for`Resource` and `URLRequest` objects
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case get
     case delete
     case patch
@@ -32,8 +32,8 @@ enum HTTPMethod: String {
 private let acceptableStatusCodes = Array(200..<300)
 
 /// Resource is analagous to an endpoint
-struct Resource<A> {
-    typealias JSONParse = (JSONObject) -> A?
+public struct Resource<A> {
+    public typealias JSONParse = (JSONObject) -> A?
     
     /// Resource API endpoint URL path
     let urlPath: String
@@ -50,7 +50,7 @@ struct Resource<A> {
 
     
     /// Initializer with some common default values
-    init(urlPath: String,
+    public init(urlPath: String,
          method: HTTPMethod = .get,
          parameters: Parameters? = nil,
          headers: [String: String]? = nil,
@@ -70,21 +70,21 @@ struct Resource<A> {
 extension Resource: CustomStringConvertible {
     
     /// Description of resource
-    var description: String {
+    public var description: String {
         return "\(method.rawValue) to \(urlPath)"
     }
 }
 
 // MARK:- Request Resource
 extension Resource {
-    typealias RequestCompletion = (A?, Error?) -> Void
+    public typealias RequestCompletion = (A?, Error?) -> Void
     
     /// Requests a resource with completion via `URLSession` `dataTask`
     ///
     /// - Parameters:
     ///     - configuration: a configuration conforming to `ResourceRequestConfiguring`
     ///     - completion: `(A?, Error?) -> Void`
-    func request(configuration: ResourceRequestConfiguring, completion: @escaping RequestCompletion) {
+    public func request(configuration: ResourceRequestConfiguring, completion: @escaping RequestCompletion) {
         
         // Build `URLRequest` with this resource
         let request: URLRequest
@@ -146,5 +146,3 @@ extension Resource {
         .resume()
     }
 }
-
-// TODO:- Request Resource with Promise

@@ -9,7 +9,7 @@
 import Foundation
 
 /// Protocol that all URLRequest paramter encoders conform to
-protocol ParameterEncoding {
+public protocol ParameterEncoding {
     
     /// Encode a request with parameters
     ///

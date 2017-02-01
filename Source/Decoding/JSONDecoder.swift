@@ -13,7 +13,7 @@ enum JSONDecoderError: Error {
 }
 
 /// Handles decoding Data into a Foundation object
-struct JSONDecoder {
+public struct JSONDecoder {
 
     static func decode(_ data: Data) throws -> JSONObject {
         

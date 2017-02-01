@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct QueryStringEncoder: ParameterEncoding {
+public struct QueryStringEncoder: ParameterEncoding {
     public static var `default`: QueryStringEncoder = QueryStringEncoder()
     
-    func encode(_ request: URLRequest, parameters: Parameters) throws -> URLRequest {
+    public func encode(_ request: URLRequest, parameters: Parameters) throws -> URLRequest {
         var request = request
         
         let queryItems = parameters.flatMap { URLQueryItem(name: $0.key, value: "\($0.value)") }
