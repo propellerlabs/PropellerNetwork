@@ -42,12 +42,12 @@ public struct Resource<A> {
     
     /// Initializer with some common default values
     public init(configuration: WebServiceConfiguration,
-         urlPath: String,
-         method: HTTPMethod = .get,
-         parameters: Parameters? = nil,
-         headers: [String: String]? = nil,
-         encoding: ParameterEncoding = JSONEncoder.default,
-         parsing: JSONParse? = nil) {
+                urlPath: String,
+                method: HTTPMethod = .get,
+                parameters: Parameters? = nil,
+                headers: [String: String]? = nil,
+                encoding: ParameterEncoding = JSONEncoder.default,
+                parsing: JSONParse? = nil) {
         
         self.configuration = configuration
         self.urlPath    = urlPath
