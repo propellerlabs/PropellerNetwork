@@ -86,4 +86,4 @@ WebService.request(getUserResource) { object, error in
 
 ## Thanks
 
-Special thanks to Chris Eidhof and Florian Kugler for their web episode [Swift Talk on Networking](https://talk.objc.io/episodes/S01E01-networking) as the inspiration for this project.
+Special thanks to Chris Eidhof and Florian Kugler for their [Swift Talk web episode on Networking](https://talk.objc.io/episodes/S01E01-networking) as the inspiration for this project.
