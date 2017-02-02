@@ -27,46 +27,25 @@ github "propellerlabs/PropellerNetwork"
 
 ## Usage
 
-### Create a resource request configuration
-A resource request configuration should conform to `ResourceRequestConfiguring`. This will provide the networking layer with the basics about each network request to make.
+### Create a WebServiceConfiguration
+A `WebServiceConfiguration` is passed into a `Resource` to let the `WebService` know how to configure the `URLRequest`. You can use a `WebServiceConfiguration` on multiple `Resource` objects.
 
 #### Example
 
 ``` Swift
-struct NetworkConfiguration: ResourceRequestConfiguring {
-    static let `default` = NetworkConfiguration()
-
-    var basePath: String {
-        return "https://httpbin.org"
-    }
-
-    var additionalHeaders: [String : String]? {
-        return nil
-    }
-
-    var credential: ResourceRequestCredential? {
-        return nil
-    }
-}
-```
-
-#### Extend request to use this configuration
-If you plan on using this configuration for each resource request, extend `request` on resource to use this configuration by default:
-
-```Swift
-extension Resource {
-    
-    func request(completion: @escaping RequestCompletion) {
-        request(configuration: NetworkConfiguration.default, completion: completion)
-    }
+struct NetworkConfiguration {
+    static let `default` = WebServiceConfiguration(basePath: "https://httpbin.org",
+                                                   additionalHeaders: nil,
+                                                   credential: nil)
 }
 ```
 
 ### Create a resource
-A resource encapsulates the expected return type, URL path, HTTP method, parameters, headers, encoding and parsing to handle the specific network request.
+A resource encapsulates the expected return type, web service configuration, URL path, HTTP method, parameters, headers, encoding and parsing to handle the specific network request.
 
 ``` Swift
-init(urlPath: String,
+init(configuration: WebServiceConfiguration,
+     urlPath: String,
      method: PropellerNetwork.HTTPMethod = .get,
      parameters: Parameters? = nil, 
      headers: [String : String]? = nil, 
@@ -76,23 +55,35 @@ init(urlPath: String,
 
 #### Example
 ```Swift
-let resource = Resource<T>(urlPath: "/get",
-                           parsing: { json in
-                                // Parse JSON to your object `T`
-                           })
+struct User {
+    let name: String    
+}
+
+let getUserResource = Resource<User>(configuration: NetworkConfiguration.default,
+                                     urlPath: "/get",
+                                     parsing: { json in
+                                        guard let name = json["name"] as? String else {
+                                            return nil
+                                        }
+                                        return User(name: name)
+                                    })
 ```
 
 ### Request a resource
 After setting up your resource, request it!
 
 ```Swift
-request(completion: (T?, Error?) -> Void)
+WebService.request<A>(_ resource: Resource<A>, completion: @escaping (A?, Error?) -> Void)
 ```
 
 ####Example
 ```Swift
-resource.request { object, error in
+WebService.request(getUserResource) { object, error in
     print(object)
     print(error)
 }
 ```
+
+## Thanks
+
+Special thanks to Chris Eidhof and his talk he gave on [Tiny Networking](https://realm.io/news/chris-eidhof-micro-libraries-swift/) as the inspiration for this project.

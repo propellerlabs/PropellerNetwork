@@ -12,14 +12,6 @@ public typealias JSONObject = [String: Any]
 public typealias Parameters = [String: Any]
 typealias HTTPHeaders = [String: String]
 
-/// WebService error
-enum WebServiceError: Error {
-    case creatingRequestFailed
-    case parsingResponseFailed
-    case unacceptableStatusCode(code: Int)
-    case unknown
-}
-
 /// HTTP method mapping for`Resource` and `URLRequest` objects
 public enum HTTPMethod: String {
     case get
@@ -29,12 +21,11 @@ public enum HTTPMethod: String {
     case put
 }
 
-private let acceptableStatusCodes = Array(200..<300)
-
 /// Resource is analagous to an endpoint
 public struct Resource<A> {
     public typealias JSONParse = (JSONObject) -> A?
     
+    let configuration: WebServiceConfiguration
     /// Resource API endpoint URL path
     let urlPath: String
     /// Method (post, get, etc.)
@@ -50,13 +41,15 @@ public struct Resource<A> {
 
     
     /// Initializer with some common default values
-    public init(urlPath: String,
-         method: HTTPMethod = .get,
-         parameters: Parameters? = nil,
-         headers: [String: String]? = nil,
-         encoding: ParameterEncoding = JSONEncoder.default,
-         parsing: JSONParse? = nil) {
+    public init(configuration: WebServiceConfiguration,
+                urlPath: String,
+                method: HTTPMethod = .get,
+                parameters: Parameters? = nil,
+                headers: [String: String]? = nil,
+                encoding: ParameterEncoding = JSONEncoder.default,
+                parsing: JSONParse? = nil) {
         
+        self.configuration = configuration
         self.urlPath    = urlPath
         self.method     = method
         self.parameters = parameters
@@ -72,77 +65,5 @@ extension Resource: CustomStringConvertible {
     /// Description of resource
     public var description: String {
         return "\(method.rawValue) to \(urlPath)"
-    }
-}
-
-// MARK:- Request Resource
-extension Resource {
-    public typealias RequestCompletion = (A?, Error?) -> Void
-    
-    /// Requests a resource with completion via `URLSession` `dataTask`
-    ///
-    /// - Parameters:
-    ///     - configuration: a configuration conforming to `ResourceRequestConfiguring`
-    ///     - completion: `(A?, Error?) -> Void`
-    public func request(configuration: ResourceRequestConfiguring, completion: @escaping RequestCompletion) {
-        
-        // Build `URLRequest` with this resource
-        let request: URLRequest
-        
-        do {
-            request = try configuration.requestWith(self)
-        } catch {
-            completion(nil, error)
-            return
-        }
-        
-        // Perform `dataTask` with `shared` `URLSession` and resource request
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            // Error case
-            if let error = error {
-                NSLog("Failed performing `URLSession` `dataTask` for resource: \(self.description)")
-                completion(nil, error)
-                return
-            }
-            
-            // Check response code
-            if let response = response as? HTTPURLResponse {
-                if !acceptableStatusCodes.contains(response.statusCode) {
-                    let error = WebServiceError.unacceptableStatusCode(code: response.statusCode)
-                    completion(nil, error)
-                    return
-                }
-            }
-            
-            // For void types we will not be handling data
-            if A.self is Void.Type {
-                completion(() as? A, nil)
-                return
-            }
-            
-            // Data response case
-            if let data = data {
-                
-                let jsonObject: JSONObject
-                
-                do {
-                    jsonObject = try JSONDecoder.decode(data)
-                } catch {
-                    completion(nil, error)
-                    return
-                }
-                
-                // Parse object
-                let object = self.parsing?(jsonObject)
-                completion(object, nil)
-                
-                return
-            }
-            
-            // Nil data and error case
-            completion(nil, nil)
-        }
-        .resume()
     }
 }

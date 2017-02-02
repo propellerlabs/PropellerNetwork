@@ -1,5 +1,5 @@
 //
-//  ResourceRequestCredential.swift
+//  WebServiceConfigurationCredential.swift
 //  PropellerNetwork
 //
 //  Created by Roy McKenzie on 1/23/17.
@@ -9,7 +9,7 @@
 import Foundation
 
 private let APICredentialsAccessTokenKey = "APICredentialsAccessTokenKey"
-public struct ResourceRequestCredential {
+public struct WebServiceConfigurationCredential {
     /// The key for the authorization header
     let authHeaderKey: String
     
