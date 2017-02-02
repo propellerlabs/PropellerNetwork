@@ -28,7 +28,7 @@ github "propellerlabs/PropellerNetwork"
 ## Usage
 
 ### Create a resource request configuration
-A resource request configuration should conform to `ResourceRequestConfiguring`. This will provide the networking layer with the basics about each network request to make
+A resource request configuration should conform to `ResourceRequestConfiguring`. This will provide the networking layer with the basics about each network request to make.
 
 #### Example
 
@@ -46,6 +46,18 @@ struct NetworkConfiguration: ResourceRequestConfiguring {
 
     var credential: ResourceRequestCredential? {
         return nil
+    }
+}
+```
+
+#### Extend request to use this configuration
+If you plan on using this configuration for each resource request, extend `request` on resource to use this configuration by default:
+
+```Swift
+extension Resource {
+    
+    func request(completion: @escaping RequestCompletion) {
+        request(configuration: NetworkConfiguration.default, completion: completion)
     }
 }
 ```
