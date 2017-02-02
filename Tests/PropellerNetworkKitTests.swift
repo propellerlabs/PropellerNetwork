@@ -15,14 +15,14 @@ class PropellerNetworkTests: XCTestCase {
     
     func testResourceParseSuccessful() {
         
-        let resource = User.create(name: "Tester", email: "tester@propellerlabs.co", password: "test")
+        let userResource = User.create(name: "Tester", email: "tester@propellerlabs.co", password: "test")
         
         let expectation = self.expectation(description: "Resource should return completion")
         
         var requestError: Error?
         var requestUser: User?
         
-        resource.request(configuration: TestResourceRequestConfiguration.default) { user, error in
+        WebService.request(userResource) { user, error in
             requestError = error
             requestUser = user
             expectation.fulfill()
@@ -36,13 +36,13 @@ class PropellerNetworkTests: XCTestCase {
     
     func testVoidResourceParseSuccessful() {
         
-        let resource = Resource<Void>(urlPath: "/get")
+        let getVoidResource = Resource<Void>(configuration: TestResourceRequestConfiguration.default, urlPath: "/get")
         
         let expectation = self.expectation(description: "Resource should return completion")
         
         var requestError: Error?
         
-        resource.request(configuration: TestResourceRequestConfiguration.default) { void, error in
+        WebService.request(getVoidResource) { void, error in
             requestError = error
             expectation.fulfill()
         }
@@ -58,12 +58,12 @@ class PropellerNetworkTests: XCTestCase {
             "ExtraHeaderKey": "ExtraHeaderValue"
         ]
         
-        let resource = Resource<Void>(urlPath: "/get", headers: headers)
+        let getVoidResource = Resource<Void>(configuration: TestResourceRequestConfiguration.default, urlPath: "/get", headers: headers)
         
         var requestError: Error?
         
         do {
-            let request = try TestResourceRequestConfiguration.default.requestWith(resource)
+            let request = try WebService.urlRequestWith(getVoidResource)
             let headerValue = request.value(forHTTPHeaderField: "ExtraHeaderKey")
             
             XCTAssertTrue(headerValue == "ExtraHeaderValue")
@@ -80,12 +80,12 @@ class PropellerNetworkTests: XCTestCase {
             "includes_images": true
         ]
         
-        let resource = Resource<Void>(urlPath: "/get", parameters: params, encoding: QueryStringEncoder.default)
+        let getVoidResource = Resource<Void>(configuration: TestResourceRequestConfiguration.default, urlPath: "/get", parameters: params, encoding: QueryStringEncoder.default)
         
         var encodingError: Error?
         
         do {
-            let request = try TestResourceRequestConfiguration.default.requestWith(resource)
+            let request = try WebService.urlRequestWith(getVoidResource)
             
             guard let url = request.url else {
                 XCTFail("URL is nil")
@@ -111,19 +111,19 @@ class PropellerNetworkTests: XCTestCase {
     
     func testResourceWithMalformedURLBasePath() {
         
-        let resource = Resource<Void>(urlPath: "/get")
+        let getVoidResource = Resource<Void>(configuration: TestFailingResourceRequestConfiguration.default, urlPath: "/get")
         
         var configurationError: Error?
         
         do {
-            let _ = try TestFailingResourceRequestConfiguration.default.requestWith(resource)
+            let _ = try WebService.urlRequestWith(getVoidResource)
         } catch {
             configurationError = error
         }
         
         XCTAssertNotNil(configurationError)
         
-        if let error = configurationError as? ResourceRequestConfigurationError {
+        if let error = configurationError as? WebServiceConfigurationError {
             XCTAssertTrue(error == .couldNotBuildUrl)
         } else {
             XCTFail("Unexpected Error type")
@@ -132,13 +132,13 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingResourceConfigurationRequest() {
         
-        let resource = Resource<Void>(urlPath: "/get")
+        let getVoidResource = Resource<Void>(configuration: TestFailingResourceRequestConfiguration.default, urlPath: "/get")
         
         var requestError: Error?
         
         let expectation = self.expectation(description: "Resource should return completion")
 
-        resource.request(configuration: TestFailingResourceRequestConfiguration.default) { _, error in
+        WebService.request(getVoidResource) { _, error in
             requestError = error
             expectation.fulfill()
         }
@@ -147,7 +147,7 @@ class PropellerNetworkTests: XCTestCase {
         
         XCTAssertNotNil(requestError)
         
-        if let error = requestError as? ResourceRequestConfigurationError {
+        if let error = requestError as? WebServiceConfigurationError {
             XCTAssertTrue(error == .couldNotBuildUrl)
         } else {
             XCTFail("Unexpected Error type")
@@ -156,7 +156,7 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingJSONDecoding() {
         
-        let resource = Resource<Bool>(urlPath: "/xml") { _ in
+        let getXMLResource = Resource<Bool>(configuration: TestResourceRequestConfiguration.default, urlPath: "/xml") { _ in
             return true
         }
         
@@ -164,7 +164,7 @@ class PropellerNetworkTests: XCTestCase {
         
         var requestError: Error?
         
-        resource.request(configuration: TestResourceRequestConfiguration.default) { _, error in
+        WebService.request(getXMLResource) { _, error in
             requestError = error
             expectation.fulfill()
         }
@@ -201,13 +201,13 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingResponseStatusCode() {
         
-        let resource = Resource<Void>(urlPath: "/status/404")
+        let errorStatusCodeResource = Resource<Void>(configuration: TestResourceRequestConfiguration.default, urlPath: "/status/404")
         
         let expectation = self.expectation(description: "Resource should return completion")
         
         var requestError: Error?
         
-        resource.request(configuration: TestResourceRequestConfiguration.default) { void, error in
+        WebService.request(errorStatusCodeResource) { void, error in
             requestError = error
             expectation.fulfill()
         }
@@ -228,13 +228,13 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingRequestWithError() {
         
-        let resource = Resource<Bool>(urlPath: "notAValidUrlPath")
+        let invalidPathResource = Resource<Bool>(configuration: TestErrorResourceRequestConfiguration.default, urlPath: "notAValidUrlPath")
         
         let expectation = self.expectation(description: "Resource should return completion")
         
         var requestError: Error?
         
-        resource.request(configuration: TestErrorResourceRequestConfiguration.default) { _, error in
+        WebService.request(invalidPathResource) { _, error in
             requestError = error
             expectation.fulfill()
         }
@@ -252,13 +252,13 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingRequestWithJSONSerializationError() {
         
-        let resource = Resource<Bool>(urlPath: "bytes/0")
+        let failingResource = Resource<Bool>(configuration: TestResourceRequestConfiguration.default, urlPath: "bytes/0")
         
         let expectation = self.expectation(description: "Resource should return completion")
         
         var requestError: Error?
         
-        resource.request(configuration: TestResourceRequestConfiguration.default) { void, error in
+        WebService.request(failingResource) { void, error in
             requestError = error
             expectation.fulfill()
         }
@@ -266,53 +266,5 @@ class PropellerNetworkTests: XCTestCase {
         waitForExpectations(timeout: timeout, handler: nil)
         
         XCTAssertNotNil(requestError)
-    }
-}
-
-/// Network configuration for testing
-struct TestResourceRequestConfiguration: ResourceRequestConfiguring {
-    let basePath: String
-    let additionalHeaders: [String : String]?
-    var credential: ResourceRequestCredential?
-    
-    static var `default`: TestResourceRequestConfiguration {
-        let additionalHeaders = ["Content-Type": "application/json"]
-        var credential = ResourceRequestCredential(authHeaderKey: "Authorization")
-        credential.authAccessToken = "TestAccessToken"
-        return TestResourceRequestConfiguration(basePath: "https://httpbin.org",
-                                                additionalHeaders: additionalHeaders,
-                                                credential: credential)
-    }
-}
-
-/// Network configuration for testing invalid base path
-struct TestFailingResourceRequestConfiguration: ResourceRequestConfiguring {
-    let basePath: String
-    let additionalHeaders: [String : String]?
-    var credential: ResourceRequestCredential?
-    
-    static var `default`: TestFailingResourceRequestConfiguration {
-        let additionalHeaders = ["Content-Type": "application/json"]
-        var credential = ResourceRequestCredential(authHeaderKey: "Authorization")
-        credential.authAccessToken = "TestAccessToken"
-        return TestFailingResourceRequestConfiguration(basePath: "Not a url",
-                                                       additionalHeaders: additionalHeaders,
-                                                       credential: credential)
-    }
-}
-
-/// Network configuration for testing invalid responses
-struct TestErrorResourceRequestConfiguration: ResourceRequestConfiguring {
-    let basePath: String
-    let additionalHeaders: [String : String]?
-    var credential: ResourceRequestCredential?
-    
-    static var `default`: TestErrorResourceRequestConfiguration {
-        let additionalHeaders = ["Content-Type": "application/json"]
-        var credential = ResourceRequestCredential(authHeaderKey: "Authorization")
-        credential.authAccessToken = "TestAccessToken"
-        return TestErrorResourceRequestConfiguration(basePath: "http://abcd.1234567.coo",
-                                                       additionalHeaders: additionalHeaders,
-                                                       credential: credential)
     }
 }
