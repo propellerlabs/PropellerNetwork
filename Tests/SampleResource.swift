@@ -24,7 +24,7 @@ extension User {
             "email": email,
             "password": password
         ]
-        return Resource<User>(configuration: TestResourceRequestConfiguration.default,
+        return Resource<User>(configuration: ResourceConfiguration.default,
                               urlPath: "/post",
                               method: .post,
                               parameters: params) { json in
@@ -42,8 +42,9 @@ extension User {
 }
 
 /// Network configuration for testing
-struct TestResourceRequestConfiguration {
+struct ResourceConfiguration {
     
+    //. Default successful configuration
     static var `default`: WebServiceConfiguration = {
         let additionalHeaders = ["Content-Type": "application/json"]
         var credential = WebServiceConfigurationCredential(authHeaderKey: "Authorization")
@@ -52,12 +53,9 @@ struct TestResourceRequestConfiguration {
                                        additionalHeaders: additionalHeaders,
                                        credential: credential)
     }()
-}
 
-/// Network configuration for testing invalid base path
-struct TestFailingResourceRequestConfiguration {
-    
-    static var `default`: WebServiceConfiguration = {
+    /// Network configuration for testing invalid base path
+    static var failing: WebServiceConfiguration = {
         let additionalHeaders = ["Content-Type": "application/json"]
         var credential = WebServiceConfigurationCredential(authHeaderKey: "Authorization")
         credential.authAccessToken = "TestAccessToken"
@@ -65,12 +63,9 @@ struct TestFailingResourceRequestConfiguration {
                                        additionalHeaders: additionalHeaders,
                                        credential: credential)
     }()
-}
 
-/// Network configuration for testing invalid responses
-struct TestErrorResourceRequestConfiguration {
-    
-    static var `default`: WebServiceConfiguration = {
+    /// Network configuration for testing invalid responses
+    static var error: WebServiceConfiguration = {
         let additionalHeaders = ["Content-Type": "application/json"]
         var credential = WebServiceConfigurationCredential(authHeaderKey: "Authorization")
         credential.authAccessToken = "TestAccessToken"

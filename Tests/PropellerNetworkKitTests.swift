@@ -36,7 +36,7 @@ class PropellerNetworkTests: XCTestCase {
     
     func testVoidResourceParseSuccessful() {
         
-        let getVoidResource = Resource<Void>(configuration: TestResourceRequestConfiguration.default, urlPath: "/get")
+        let getVoidResource = Resource<Void>(configuration: ResourceConfiguration.default, urlPath: "/get")
         
         let expectation = self.expectation(description: "Resource should return completion")
         
@@ -58,7 +58,7 @@ class PropellerNetworkTests: XCTestCase {
             "ExtraHeaderKey": "ExtraHeaderValue"
         ]
         
-        let getVoidResource = Resource<Void>(configuration: TestResourceRequestConfiguration.default, urlPath: "/get", headers: headers)
+        let getVoidResource = Resource<Void>(configuration: ResourceConfiguration.default, urlPath: "/get", headers: headers)
         
         var requestError: Error?
         
@@ -80,7 +80,7 @@ class PropellerNetworkTests: XCTestCase {
             "includes_images": true
         ]
         
-        let getVoidResource = Resource<Void>(configuration: TestResourceRequestConfiguration.default, urlPath: "/get", parameters: params, encoding: QueryStringEncoder.default)
+        let getVoidResource = Resource<Void>(configuration: ResourceConfiguration.default, urlPath: "/get", parameters: params, encoding: QueryStringEncoder.default)
         
         var encodingError: Error?
         
@@ -111,7 +111,7 @@ class PropellerNetworkTests: XCTestCase {
     
     func testResourceWithMalformedURLBasePath() {
         
-        let getVoidResource = Resource<Void>(configuration: TestFailingResourceRequestConfiguration.default, urlPath: "/get")
+        let getVoidResource = Resource<Void>(configuration: ResourceConfiguration.failing, urlPath: "/get")
         
         var configurationError: Error?
         
@@ -132,7 +132,7 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingResourceConfigurationRequest() {
         
-        let getVoidResource = Resource<Void>(configuration: TestFailingResourceRequestConfiguration.default, urlPath: "/get")
+        let getVoidResource = Resource<Void>(configuration: ResourceConfiguration.failing, urlPath: "/get")
         
         var requestError: Error?
         
@@ -156,7 +156,7 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingJSONDecoding() {
         
-        let getXMLResource = Resource<Bool>(configuration: TestResourceRequestConfiguration.default, urlPath: "/xml") { _ in
+        let getXMLResource = Resource<Bool>(configuration: ResourceConfiguration.default, urlPath: "/xml") { _ in
             return true
         }
         
@@ -201,7 +201,7 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingResponseStatusCode() {
         
-        let errorStatusCodeResource = Resource<Void>(configuration: TestResourceRequestConfiguration.default, urlPath: "/status/404")
+        let errorStatusCodeResource = Resource<Void>(configuration: ResourceConfiguration.default, urlPath: "/status/404")
         
         let expectation = self.expectation(description: "Resource should return completion")
         
@@ -228,7 +228,7 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingRequestWithError() {
         
-        let invalidPathResource = Resource<Bool>(configuration: TestErrorResourceRequestConfiguration.default, urlPath: "notAValidUrlPath")
+        let invalidPathResource = Resource<Bool>(configuration: ResourceConfiguration.error, urlPath: "notAValidUrlPath")
         
         let expectation = self.expectation(description: "Resource should return completion")
         
@@ -252,7 +252,7 @@ class PropellerNetworkTests: XCTestCase {
     
     func testFailingRequestWithJSONSerializationError() {
         
-        let failingResource = Resource<Bool>(configuration: TestResourceRequestConfiguration.default, urlPath: "bytes/0")
+        let failingResource = Resource<Bool>(configuration: ResourceConfiguration.default, urlPath: "bytes/0")
         
         let expectation = self.expectation(description: "Resource should return completion")
         
