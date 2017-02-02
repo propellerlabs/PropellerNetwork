@@ -11,7 +11,7 @@ Networking layer for Propeller iOS projects
 
 ## Installation
 
-## Swift Package Manager
+### Swift Package Manager
 
 ```Swift
 dependencies: [
@@ -19,7 +19,7 @@ dependencies: [
 ]
 ```
 
-## Carthage
+### Carthage
 
 ```
 github "propellerlabs/PropellerNetwork"
