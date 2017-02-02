@@ -14,9 +14,15 @@ Networking layer for Propeller iOS projects
 ## Swift Package Manager
 
 ```Swift
-    dependencies: [
-        .Package(url: "https://github.com/propellerlabs/PropellerNetwork.git", majorVersion: 1)
-    ]
+dependencies: [
+    .Package(url: "https://github.com/propellerlabs/PropellerNetwork.git", majorVersion: 1)
+]
+```
+
+## Carthage
+
+```
+github "propellerlabs/PropellerNetwork"
 ```
 
 ## Usage
