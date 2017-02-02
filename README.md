@@ -86,4 +86,4 @@ WebService.request(getUserResource) { object, error in
 
 ## Thanks
 
-Special thanks to Chris Eidhof and his talk he gave on [Tiny Networking](https://realm.io/news/chris-eidhof-micro-libraries-swift/) as the inspiration for this project.
+Special thanks to Chris Eidhofand and Florian Kugler for their web episode [Swift Talk on Networking](https://talk.objc.io/episodes/S01E01-networking) as the inspiration for this project.
