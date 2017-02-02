@@ -55,7 +55,6 @@ init(configuration: WebServiceConfiguration,
 
 #### Example
 ```Swift
-
 struct User {
     let name: String    
 }
@@ -74,7 +73,7 @@ let getUserResource = Resource<User>(configuration: NetworkConfiguration.default
 After setting up your resource, request it!
 
 ```Swift
-WebService.request(resource: Resource<A>, completion: (A?, Error?) -> Void)
+WebService.request<A>(_ resource: Resource<A>, completion: @escaping (A?, Error?) -> Void)
 ```
 
 ####Example
@@ -87,4 +86,4 @@ WebService.request(getUserResource) { object, error in
 
 ## Thanks
 
-Special thanks to Chris Eidhof and his talk he gave on [Tiny Networking[(https://realm.io/news/chris-eidhof-micro-libraries-swift/)] as the inspiration for this project.
+Special thanks to Chris Eidhof and his talk he gave on [Tiny Networking](https://realm.io/news/chris-eidhof-micro-libraries-swift/) as the inspiration for this project.
