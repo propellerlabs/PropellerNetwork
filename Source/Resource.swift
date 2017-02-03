@@ -10,7 +10,6 @@ import Foundation
 
 public typealias JSONObject = [String: Any]
 public typealias Parameters = [String: Any]
-typealias HTTPHeaders = [String: String]
 
 /// HTTP method mapping for`Resource` and `URLRequest` objects
 public enum HTTPMethod: String {
