@@ -63,10 +63,14 @@ After setting up your resource, request it!
   request(completion: (T?, Error?) -> Void)
 ```
 
-####Example
+#### Example
 ```Swift
   resource.request { object, error in
       print(object)
       print(error)
   }
 ```
+
+##Thanks
+
+Special thanks to Chris Eidhof and Florian Kugler for their [Swift Talk web episode on Networking](https://talk.objc.io/episodes/S01E01-networking) as the inspiration for this project.
