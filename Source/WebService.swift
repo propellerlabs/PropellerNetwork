@@ -11,7 +11,7 @@ import Foundation
 private let acceptableStatusCodes = Array(200..<300)
 
 /// WebService error
-enum WebServiceError: Error {
+public enum WebServiceError: Error {
     case creatingRequestFailed
     case parsingResponseFailed
     case unacceptableStatusCode(code: Int)
@@ -19,7 +19,7 @@ enum WebServiceError: Error {
 }
 
 /// Makes requests
-struct WebService {
+public struct WebService {
     
     /// Requests a resource with completion via `URLSession` `dataTask`
     ///
