@@ -11,10 +11,10 @@ import Foundation
 private let APICredentialsAccessTokenKey = "APICredentialsAccessTokenKey"
 public struct WebServiceConfigurationCredential {
     /// The key for the authorization header
-    let authHeaderKey: String
+    public let authHeaderKey: String
     
     /// Access token for resource
-    var authAccessToken: String? {
+    public var authAccessToken: String? {
         get {
             return UserDefaults.standard.string(forKey: APICredentialsAccessTokenKey)
         }

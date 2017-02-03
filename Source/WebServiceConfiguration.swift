@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum WebServiceConfigurationError: Error {
+public enum WebServiceConfigurationError: Error {
     case couldNotBuildUrl
 }
 
