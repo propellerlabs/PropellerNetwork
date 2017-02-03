@@ -76,7 +76,7 @@ After setting up your resource, request it!
 WebService.request<A>(_ resource: Resource<A>, completion: @escaping (A?, Error?) -> Void)
 ```
 
-####Example
+#### Example
 ```Swift
 WebService.request(getUserResource) { object, error in
     print(object)
@@ -84,6 +84,6 @@ WebService.request(getUserResource) { object, error in
 }
 ```
 
-## Thanks
+##Thanks
 
 Special thanks to Chris Eidhof and Florian Kugler for their [Swift Talk web episode on Networking](https://talk.objc.io/episodes/S01E01-networking) as the inspiration for this project.
