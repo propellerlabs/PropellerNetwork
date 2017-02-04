@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum JSONEncoderError: Error {
+public enum JSONEncoderError: Error {
     case notValidJSON
 }
 

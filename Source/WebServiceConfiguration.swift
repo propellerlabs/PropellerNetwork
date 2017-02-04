@@ -14,7 +14,7 @@ public enum WebServiceConfigurationError: Error {
 
 /// Protocol for configuring a `URLRequest` for a resource credentials on a request
 public struct WebServiceConfiguration {
-    let basePath: String
-    let additionalHeaders: [String: String]?
-    var credential: WebServiceConfigurationCredential?
+    public let basePath: String
+    public let additionalHeaders: [String: String]?
+    public var credential: WebServiceConfigurationCredential?
 }
