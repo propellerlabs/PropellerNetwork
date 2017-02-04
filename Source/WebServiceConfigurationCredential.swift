@@ -22,4 +22,8 @@ public struct WebServiceConfigurationCredential {
             UserDefaults.standard.set(newValue, forKey: APICredentialsAccessTokenKey)
         }
     }
+    
+    public init(authHeaderKey: String) {
+        self.authHeaderKey = authHeaderKey
+    }
 }
