@@ -15,18 +15,27 @@ enum JSONDecoderError: Error {
 /// Handles decoding Data into a Foundation object
 public struct JSONDecoder {
 
-    /// Decodes `Data` into a `JSONObject`
+    /// Decodes `Data` into a `JSONObject`.
+    ///
+    /// - Note: if `JSONSerialization` returns a top level
+    ///   array then we wrap it in a dictionary.
+    ///
     /// - Parameters: 
     ///     - data: `Data` object to be converted to `JSONObject`
     /// - Returns: `JSONObject`
     public static func decode(_ data: Data) throws -> JSONObject {
         
-        let jsonObjectAny: Any
+        var jsonObjectAny: Any
         
         do {
             jsonObjectAny = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         } catch {
             throw error
+        }
+        
+        // If object is a top level array then create a dictionary with empty dictionary key
+        if jsonObjectAny is [JSONObject] {
+            jsonObjectAny = ["": jsonObjectAny]
         }
         
         // Cast as a JSONObject [String: Any]
