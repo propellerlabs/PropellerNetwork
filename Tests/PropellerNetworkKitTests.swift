@@ -267,4 +267,36 @@ class PropellerNetworkTests: XCTestCase {
         
         XCTAssertNotNil(requestError)
     }
+    
+    func testTopLevelArrayResponse() {
+        
+        let topLevelJsonArray = "[ { \"name\": \"roy\" }, { \"name\": \"rich\" } ]"
+        
+        guard let data = topLevelJsonArray.data(using: .utf8) else {
+            XCTFail()
+            return
+        }
+        
+        do {
+            let _ = try JSONDecoder.decode(data)
+        } catch {
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testNonTopLevelArrayResponse() {
+        
+        let nonTopLevelJsonArray = "{ \"values\": [{ \"name\": \"roy\" }, { \"name\": \"rich\" } ] }"
+        
+        guard let data = nonTopLevelJsonArray.data(using: .utf8) else {
+            XCTFail()
+            return
+        }
+        
+        do {
+            let _ = try JSONDecoder.decode(data)
+        } catch {
+            XCTAssertNil(error)
+        }
+    }
 }
