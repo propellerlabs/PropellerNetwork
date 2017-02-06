@@ -1,0 +1,47 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/roymckenzie/Development/PropellerNetwork/Source/JSONEncoder.swift",
+      "line": 11,
+      "symbol": "JSONEncoderError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/roymckenzie/Development/PropellerNetwork/Source/Resource.swift",
+      "line": 16,
+      "symbol": "HTTPMethod.get",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/roymckenzie/Development/PropellerNetwork/Source/Resource.swift",
+      "line": 17,
+      "symbol": "HTTPMethod.delete",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/roymckenzie/Development/PropellerNetwork/Source/Resource.swift",
+      "line": 18,
+      "symbol": "HTTPMethod.patch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/roymckenzie/Development/PropellerNetwork/Source/Resource.swift",
+      "line": 19,
+      "symbol": "HTTPMethod.post",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/roymckenzie/Development/PropellerNetwork/Source/Resource.swift",
+      "line": 20,
+      "symbol": "HTTPMethod.put",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/roymckenzie/Development/PropellerNetwork"
+}
