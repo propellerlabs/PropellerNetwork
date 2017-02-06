@@ -9,6 +9,9 @@
 import Foundation
 
 private let APICredentialsAccessTokenKey = "APICredentialsAccessTokenKey"
+
+/// Handles storing of the authentication token required for 
+/// authorized resources
 public struct WebServiceConfigurationCredential {
     /// The key for the authorization header
     public let authHeaderKey: String
@@ -23,6 +26,9 @@ public struct WebServiceConfigurationCredential {
         }
     }
     
+    /// Initialize with a value for what the KEY value for the auth header should be
+    /// - Parameters:
+    ///     - authHeaderKey: The key for the authorization header
     public init(authHeaderKey: String) {
         self.authHeaderKey = authHeaderKey
     }

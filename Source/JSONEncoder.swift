@@ -9,14 +9,21 @@
 import Foundation
 
 public enum JSONEncoderError: Error {
+    /// Foundation object passed to encoder is not a valid JSON object
     case notValidJSON
 }
 
 /// Handles converting a JSON object into data for transmission in 
 /// `URLRequest`
 public struct JSONEncoder: ParameterEncoding {
+    /// Static accessible implementation with no `JSONSerialization` options
     public static var `default`: JSONEncoder = JSONEncoder()
     
+    /// Adds parameters to a `URLRequest` body
+    /// - Parameters:
+    ///     - request: `URLRequest` object to encode parameters onto
+    ///     - parameters: dictionary of key-value pairs to add to `URLRequest`
+    /// - Returns: `URLRequest`
     public func encode(_ request: URLRequest, parameters: Parameters) throws -> URLRequest {
         var request = request
         

@@ -15,6 +15,10 @@ enum JSONDecoderError: Error {
 /// Handles decoding Data into a Foundation object
 public struct JSONDecoder {
 
+    /// Decodes `Data` into a `JSONObject`
+    /// - Parameters: 
+    ///     - data: `Data` object to be converted to `JSONObject`
+    /// - Returns: `JSONObject`
     public static func decode(_ data: Data) throws -> JSONObject {
         
         let jsonObjectAny: Any
