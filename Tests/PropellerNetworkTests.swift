@@ -216,7 +216,7 @@ class PropellerNetworkTests: XCTestCase {
         
         XCTAssertNotNil(requestError)
         
-        if let error = requestError as? WebServiceError {
+        if let error = requestError as? WebServiceRequestError {
             switch error {
             case .unacceptableStatusCode:
                 break

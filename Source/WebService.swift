@@ -11,17 +11,21 @@ import Foundation
 private let acceptableStatusCodes = Array(200..<300)
 
 /// WebService error
-public enum WebServiceError: Error {
+public enum WebServiceRequestError: Error {
+    /// Could not create the `URLRequest`
     case creatingRequestFailed
+    /// Could not parse the response recieved from the `dataTask`
     case parsingResponseFailed
+    /// Response included an unacceptable status code (ex. 404)
     case unacceptableStatusCode(code: Int)
+    /// An unknown error occured
     case unknown
 }
 
-/// Makes requests
+/// Makes requests with `Resource<A>` objects
 public struct WebService {
     
-    /// Requests a resource with completion via `URLSession` `dataTask`
+    /// Requests a `Resource<A>` with completion via `URLSession` `dataTask`
     ///
     /// - Parameters:
     ///     - configuration: a configuration conforming to `ResourceRequestConfiguring`
@@ -51,7 +55,7 @@ public struct WebService {
             // Check response code
             if let response = response as? HTTPURLResponse {
                 if !acceptableStatusCodes.contains(response.statusCode) {
-                    let error = WebServiceError.unacceptableStatusCode(code: response.statusCode)
+                    let error = WebServiceRequestError.unacceptableStatusCode(code: response.statusCode)
                     completion(nil, error)
                     return
                 }
@@ -89,8 +93,9 @@ public struct WebService {
     }
     
     /// Configures and credentials a `URLRequest` for a `Resource<A>`
-    ///
-    /// - Returns: A `URLRequest` for this resource
+    /// - Parameters:
+    ///     - resource: the `Resource<A>` to use to create and configure a `URLRequest` for
+    /// - Returns: A `URLRequest` for this `Resource<A>`
     internal static func urlRequestWith<A>(_ resource: Resource<A>) throws -> URLRequest {
         
         let configuration = resource.configuration
