@@ -1,4 +1,3 @@
 language: objective-c
 osx_image: xcode8.1
-xcode_project: PropellerNetwork.xcodeproj
-xcode_scheme: PropellerNetworkTests
+script: xcodebuild clean build test -scheme PropellerNetwork -destination "platform=iOS Simulator,name=iPhone 6S"
