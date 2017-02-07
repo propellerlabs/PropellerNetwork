@@ -1,3 +1,8 @@
 language: objective-c
-osx_image: xcode8
-script: xcodebuild clean build test -scheme PropellerNetwork -destination "platform=iOS Simulator,name=iPhone 6S"
+osx_image: xcode8.1
+
+env:
+  - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone SE' COVERAGE='-enableCodeCoverage NO'
+
+script:
+  - set -o pipefail && xcodebuild -scheme PropellerNetwork -destination "$DESTINATION" $ACTION CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO $COVERAGE | xcpretty
