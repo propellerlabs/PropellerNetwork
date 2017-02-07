@@ -27,7 +27,7 @@
 			containerPortal = E3ECEF321E2FEA000038EDBA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E3ECEF3A1E2FEA000038EDBA;
-			remoteInfo = PropellerNetworkKit;
+			remoteInfo = PropellerNetwork;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -165,7 +165,7 @@
 			dependencies = (
 			);
 			name = PropellerNetwork;
-			productName = PropellerNetworkKit;
+			productName = PropellerNetwork;
 			productReference = E3ECEF3B1E2FEA000038EDBA /* PropellerNetwork.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -183,7 +183,7 @@
 				E3ECEF471E2FEA000038EDBA /* PBXTargetDependency */,
 			);
 			name = PropellerNetworkTests;
-			productName = PropellerNetworkKitTests;
+			productName = PropellerNetworkTests;
 			productReference = E3ECEF441E2FEA000038EDBA /* PropellerNetworkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
