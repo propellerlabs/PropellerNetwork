@@ -66,7 +66,7 @@ public struct WebService {
             // Data response case
             if let data = data {
                 
-                let jsonObject: JSONObject
+                let jsonObject: Any
                 
                 do {
                     jsonObject = try JSONDecoder.decode(data)

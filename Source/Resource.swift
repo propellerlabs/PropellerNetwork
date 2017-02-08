@@ -22,7 +22,6 @@ public enum HTTPMethod: String {
 
 /// Resource is analagous to an endpoint
 public struct Resource<A> {
-    public typealias JSONParse = (JSONObject) -> A?
     
     let configuration: WebServiceConfiguration
     /// Resource API endpoint URL path
@@ -36,7 +35,7 @@ public struct Resource<A> {
     /// Parameter encoding
     let encoding: ParameterEncoding
     /// Parse
-    let parsing: JSONParse?
+    let parsing: ((Any) -> A?)?
 
     
     /// Initializer with some common default values
@@ -46,7 +45,7 @@ public struct Resource<A> {
          parameters: Parameters? = nil,
          headers: [String: String]? = nil,
          encoding: ParameterEncoding = JSONEncoder.default,
-         parsing: JSONParse? = nil) {
+         parsing: ((Any) -> A?)? = nil) {
         
         self.configuration = configuration
         self.urlPath    = urlPath
