@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum JSONDecoderError: Error {
-    case objectNotJSONObject
-}
-
 /// Handles decoding Data into a Foundation object
 public struct JSONDecoder {
 
@@ -23,24 +19,14 @@ public struct JSONDecoder {
     /// - Parameters: 
     ///     - data: `Data` object to be converted to `JSONObject`
     /// - Returns: `JSONObject`
-    public static func decode(_ data: Data) throws -> JSONObject {
+    public static func decode(_ data: Data) throws -> Any {
         
-        var jsonObjectAny: Any
+        let jsonObject: Any
         
         do {
-            jsonObjectAny = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         } catch {
             throw error
-        }
-        
-        // If object is a top level array then create a dictionary with empty dictionary key
-        if jsonObjectAny is [JSONObject] {
-            jsonObjectAny = ["": jsonObjectAny]
-        }
-        
-        // Cast as a JSONObject [String: Any]
-        guard let jsonObject = jsonObjectAny as? JSONObject else {
-            throw JSONDecoderError.objectNotJSONObject
         }
         
         return jsonObject

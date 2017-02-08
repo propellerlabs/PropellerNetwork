@@ -29,6 +29,9 @@ extension User {
                               method: .post,
                               parameters: params) { json in
 
+            guard let json = json as? JSONObject else {
+                return nil
+            }
             guard let jsonData = json["json"] as? JSONObject else {
                 return nil
             }
