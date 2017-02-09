@@ -76,8 +76,12 @@ public struct WebService {
                 }
                 
                 // Parse object
-                let object = resource.parsing?(jsonObject)
-                completion(object, nil)
+                do {
+                    let object = try resource.parsing?(jsonObject)
+                    completion(object, nil)
+                } catch {
+                    completion(nil, error)
+                }
                 
                 return
             }

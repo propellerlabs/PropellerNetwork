@@ -35,7 +35,7 @@ public struct Resource<A> {
     /// Parameter encoding
     let encoding: ParameterEncoding
     /// Parse
-    let parsing: ((Any) -> A?)?
+    let parsing: ((Any) throws -> A?)?
 
     
     /// Initializer with some common default values
@@ -45,7 +45,7 @@ public struct Resource<A> {
          parameters: Parameters? = nil,
          headers: [String: String]? = nil,
          encoding: ParameterEncoding = JSONEncoder.default,
-         parsing: ((Any) -> A?)? = nil) {
+         parsing: ((Any) throws -> A?)? = nil) {
         
         self.configuration = configuration
         self.urlPath    = urlPath
