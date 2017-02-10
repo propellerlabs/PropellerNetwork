@@ -58,11 +58,11 @@ struct Pokemon {
 /// Network configuration for testing
 struct ResourceConfiguration {
     
-    //. Default successful configuration
+    /// Default successful configuration
     static var `default`: WebServiceConfiguration = {
         let additionalHeaders = ["Content-Type": "application/json"]
-        var credential = WebServiceConfigurationCredential(authHeaderKey: "Authorization")
-        credential.authAccessToken = "TestAccessToken"
+        var credential = HeaderRequestCredential(authKey: "Authorization", authToken: nil)
+        credential.authToken = "TestAccessToken"
         return WebServiceConfiguration(basePath: "https://httpbin.org",
                                        additionalHeaders: additionalHeaders,
                                        credential: credential)
@@ -71,8 +71,8 @@ struct ResourceConfiguration {
     /// Network configuration for testing invalid base path
     static var failing: WebServiceConfiguration = {
         let additionalHeaders = ["Content-Type": "application/json"]
-        var credential = WebServiceConfigurationCredential(authHeaderKey: "Authorization")
-        credential.authAccessToken = "TestAccessToken"
+        var credential = HeaderRequestCredential(authKey: "Authorization", authToken: nil)
+        credential.authToken = "TestAccessToken"
         return WebServiceConfiguration(basePath: "Not a url",
                                        additionalHeaders: additionalHeaders,
                                        credential: credential)
@@ -81,8 +81,8 @@ struct ResourceConfiguration {
     /// Network configuration for testing invalid responses
     static var error: WebServiceConfiguration = {
         let additionalHeaders = ["Content-Type": "application/json"]
-        var credential = WebServiceConfigurationCredential(authHeaderKey: "Authorization")
-        credential.authAccessToken = "TestAccessToken"
+        var credential = HeaderRequestCredential(authKey: "Authorization", authToken: nil)
+        credential.authToken = "TestAccessToken"
         return WebServiceConfiguration(basePath: "http://abcd.1234567.coo",
                                        additionalHeaders: additionalHeaders,
                                        credential: credential)
@@ -100,4 +100,23 @@ struct ResourceConfiguration {
                                        additionalHeaders: nil,
                                        credential: nil)
     }()
+    
+    /// HeaderRequestCredential
+    static var headerCredentialed: WebServiceConfiguration = {
+        let additionalHeaders = ["Content-Type": "application/json"]
+        var credential = HeaderRequestCredential(authKey: "Authorization", authToken: "SECRETKEY123")
+        return WebServiceConfiguration(basePath: "https://httpbin.org",
+                                       additionalHeaders: additionalHeaders,
+                                       credential: credential)
+    }()
+
+    /// QueryStringCredential
+    static var queryCredentialed: WebServiceConfiguration = {
+        let additionalHeaders = ["Content-Type": "application/json"]
+        var credential = QueryStringRequestCredential(authKey: "api_key", authToken: "SECRET_KEY")
+        return WebServiceConfiguration(basePath: "https://httpbin.org",
+                                       additionalHeaders: additionalHeaders,
+                                       credential: credential)
+    }()
+
 }
