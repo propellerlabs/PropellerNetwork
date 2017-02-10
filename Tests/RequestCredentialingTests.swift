@@ -27,7 +27,7 @@ class RequestCredentialingTests: XCTestCase {
             let request = try WebService.urlRequestWith(getVoidResource)
             authToken = request.value(forHTTPHeaderField: authKey)
         } catch {
-            XCTFail()
+            XCTFail("\(error.localizedDescription)")
         }
         
         XCTAssertNotNil(authToken)
@@ -55,7 +55,7 @@ class RequestCredentialingTests: XCTestCase {
                 }
             }
         } catch {
-            XCTFail()
+            XCTFail("\(error.localizedDescription)")
         }
         
         XCTAssertNotNil(authToken)
