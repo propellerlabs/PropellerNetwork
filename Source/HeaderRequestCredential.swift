@@ -16,6 +16,11 @@ public struct HeaderRequestCredential: RequestCredentialing {
     /// Header auth token
     public var authToken: String?
     
+    public init(authKey: String, authToken: String? = nil) {
+        self.authKey = authKey
+        self.authToken = authToken
+    }
+    
     /// Apply credential to request header
     ///
     /// - Parameters:
