@@ -34,6 +34,42 @@ class PropellerNetworkTests: XCTestCase {
         XCTAssertNil(requestError)
     }
     
+    func testBasePathEmpty() {
+        
+        let userResource = Pokemon.get()
+        
+        let expectation = self.expectation(description: "Resource should return completion")
+        
+        var requestError: Error?
+        
+        WebService.request(userResource) { _, error in
+            requestError = error
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: timeout, handler: nil)
+        
+        XCTAssertNil(requestError)
+    }
+    
+    func testBasePathFull() {
+        
+        let userResource = Pokemon.getFullPathBase()
+        
+        let expectation = self.expectation(description: "Resource should return completion")
+        
+        var requestError: Error?
+        
+        WebService.request(userResource) { _, error in
+            requestError = error
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: timeout, handler: nil)
+        
+        XCTAssertNil(requestError)
+    }
+    
     func testVoidResourceParseSuccessful() {
         
         let getVoidResource = Resource<Void>(configuration: ResourceConfiguration.default, urlPath: "/get")

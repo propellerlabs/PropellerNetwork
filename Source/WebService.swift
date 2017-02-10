@@ -14,8 +14,27 @@ private let acceptableStatusCodes = Array(200..<300)
 public enum WebServiceError: Error {
     case creatingRequestFailed
     case parsingResponseFailed
+    case noParserProvided
     case unacceptableStatusCode(code: Int)
     case unknown
+}
+
+extension WebServiceError: LocalizedError {
+    
+    public var errorDescription: String? {
+        switch self {
+        case .creatingRequestFailed:
+            return NSLocalizedString("Could not create URLRequest", comment: "")
+        case .noParserProvided:
+            return NSLocalizedString("No parser was provided for Resource", comment: "")
+        case .parsingResponseFailed:
+            return NSLocalizedString("Could not parse response", comment: "")
+        case .unacceptableStatusCode(let statusCode):
+            return NSLocalizedString("Returned bad status code: \(statusCode)", comment: "")
+        case .unknown:
+            return NSLocalizedString("An unkwon error occured", comment: "")
+        }
+    }
 }
 
 /// Makes requests
@@ -75,9 +94,15 @@ public struct WebService {
                     return
                 }
                 
+                guard let parser = resource.parsing else {
+                    let error = WebServiceError.noParserProvided
+                    completion(nil, error)
+                    return
+                }
+                
                 // Parse object
                 do {
-                    let object = try resource.parsing?(jsonObject)
+                    let object = try parser(jsonObject)
                     completion(object, nil)
                 } catch {
                     completion(nil, error)
@@ -88,8 +113,8 @@ public struct WebService {
             
             // Nil data and error case
             completion(nil, nil)
-            }
-            .resume()
+        }
+        .resume()
     }
     
     /// Configures and credentials a `URLRequest` for a `Resource<A>`
@@ -99,13 +124,24 @@ public struct WebService {
         
         let configuration = resource.configuration
         
-        // Set url
-        guard let url = URL(string: configuration.basePath)?.appendingPathComponent(resource.urlPath) else {
-            throw WebServiceConfigurationError.couldNotBuildUrl
+        let resourceUrl: URL
+        
+        // Set URL
+        if let basePath = configuration.basePath, !basePath.isEmpty {
+            guard let url = URL(string: basePath)?.appendingPathComponent(resource.urlPath) else {
+                throw WebServiceConfigurationError.couldNotBuildUrl
+            }
+            resourceUrl = url
+        } else {
+            guard let url = URL(string: resource.urlPath) else {
+                throw WebServiceConfigurationError.couldNotBuildUrl
+            }
+            resourceUrl = url
         }
+
         
         // Create request and set method
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: resourceUrl)
         request.httpMethod = resource.method.rawValue
         
         // Add headers

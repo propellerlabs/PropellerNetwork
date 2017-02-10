@@ -44,6 +44,17 @@ extension User {
     }
 }
 
+struct Pokemon {
+    
+    public static func get() -> Resource<Void> {
+        return Resource<Void>(configuration: ResourceConfiguration.emptyBase, urlPath: "http://pokeapi.co/api/v2/pokemon/4/")
+    }
+    
+    public static func getFullPathBase() -> Resource<Void> {
+        return Resource<Void>(configuration: ResourceConfiguration.fullPathBase, urlPath: "")
+    }
+}
+
 /// Network configuration for testing
 struct ResourceConfiguration {
     
@@ -75,5 +86,18 @@ struct ResourceConfiguration {
         return WebServiceConfiguration(basePath: "http://abcd.1234567.coo",
                                        additionalHeaders: additionalHeaders,
                                        credential: credential)
+    }()
+    
+    /// Network configuration for testing invalid responses
+    static var emptyBase: WebServiceConfiguration = {
+        return WebServiceConfiguration(basePath: "",
+                                       additionalHeaders: nil,
+                                       credential: nil)
+    }()
+    
+    static var fullPathBase: WebServiceConfiguration = {
+        return WebServiceConfiguration(basePath: "http://pokeapi.co/api/v2/pokemon/4/",
+                                       additionalHeaders: nil,
+                                       credential: nil)
     }()
 }
