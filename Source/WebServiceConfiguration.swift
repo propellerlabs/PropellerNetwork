@@ -26,11 +26,11 @@ extension WebServiceConfigurationError: LocalizedError {
 public struct WebServiceConfiguration {
     public let basePath: String?
     public let additionalHeaders: [String: String]?
-    public var credential: WebServiceConfigurationCredential?
+    public var credential: RequestCredentialing?
     
     public init(basePath: String?,
          additionalHeaders: [String: String]?,
-         credential: WebServiceConfigurationCredential?) {
+         credential: RequestCredentialing?) {
         
         self.basePath = basePath
         self.additionalHeaders = additionalHeaders

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E30B2FE91E42529900B5BA2B /* PropellerNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = E30B2FDF1E42529900B5BA2B /* PropellerNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E30B2FEC1E42529900B5BA2B /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE31E42529900B5BA2B /* Resource.swift */; };
-		E30B2FED1E42529900B5BA2B /* WebServiceConfigurationCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE41E42529900B5BA2B /* WebServiceConfigurationCredential.swift */; };
+		E30B2FED1E42529900B5BA2B /* HeaderRequestCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30B2FE41E42529900B5BA2B /* HeaderRequestCredential.swift */; };
 		E30B2FEF1E4252E900B5BA2B /* PropellerNetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */; };
 		E30B2FF01E4252EC00B5BA2B /* SampleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341BDBC1E397B2700DA5152 /* SampleResource.swift */; };
 		E3103A6E1E4287AE00D7EA0E /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3103A6D1E4287AE00D7EA0E /* JSONDecoder.swift */; };
@@ -18,6 +18,9 @@
 		E3103A751E4287D500D7EA0E /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3103A731E4287D500D7EA0E /* ParameterEncoding.swift */; };
 		E3103A761E4287D500D7EA0E /* WebServiceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3103A741E4287D500D7EA0E /* WebServiceConfiguration.swift */; };
 		E3103A9B1E43C16C00D7EA0E /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3103A9A1E43C16C00D7EA0E /* WebService.swift */; };
+		E335E3151E4E5BC10026E599 /* RequestCredentialing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335E3141E4E5BC10026E599 /* RequestCredentialing.swift */; };
+		E335E3171E4E5E9A0026E599 /* QueryStringRequestCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335E3161E4E5E9A0026E599 /* QueryStringRequestCredential.swift */; };
+		E335E3191E4E64240026E599 /* RequestCredentialingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335E3181E4E64240026E599 /* RequestCredentialingTests.swift */; };
 		E3ECEF451E2FEA000038EDBA /* PropellerNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ECEF3B1E2FEA000038EDBA /* PropellerNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,13 +38,16 @@
 		E30B2FDE1E42529900B5BA2B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E30B2FDF1E42529900B5BA2B /* PropellerNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerNetwork.h; sourceTree = "<group>"; };
 		E30B2FE31E42529900B5BA2B /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
-		E30B2FE41E42529900B5BA2B /* WebServiceConfigurationCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceConfigurationCredential.swift; sourceTree = "<group>"; };
+		E30B2FE41E42529900B5BA2B /* HeaderRequestCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderRequestCredential.swift; sourceTree = "<group>"; };
 		E3103A6D1E4287AE00D7EA0E /* JSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONDecoder.swift; path = Source/JSONDecoder.swift; sourceTree = SOURCE_ROOT; };
 		E3103A6F1E4287C800D7EA0E /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONEncoder.swift; path = Source/JSONEncoder.swift; sourceTree = SOURCE_ROOT; };
 		E3103A701E4287C800D7EA0E /* QueryStringEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QueryStringEncoder.swift; path = Source/QueryStringEncoder.swift; sourceTree = SOURCE_ROOT; };
 		E3103A731E4287D500D7EA0E /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = SOURCE_ROOT; };
 		E3103A741E4287D500D7EA0E /* WebServiceConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebServiceConfiguration.swift; path = Source/WebServiceConfiguration.swift; sourceTree = SOURCE_ROOT; };
 		E3103A9A1E43C16C00D7EA0E /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		E335E3141E4E5BC10026E599 /* RequestCredentialing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestCredentialing.swift; path = Source/RequestCredentialing.swift; sourceTree = SOURCE_ROOT; };
+		E335E3161E4E5E9A0026E599 /* QueryStringRequestCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryStringRequestCredential.swift; sourceTree = "<group>"; };
+		E335E3181E4E64240026E599 /* RequestCredentialingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCredentialingTests.swift; sourceTree = "<group>"; };
 		E341BDBA1E397B2700DA5152 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropellerNetworkKitTests.swift; sourceTree = "<group>"; };
 		E341BDBC1E397B2700DA5152 /* SampleResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleResource.swift; sourceTree = "<group>"; };
@@ -71,13 +77,13 @@
 		E30B2FD81E42529900B5BA2B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E335E3131E4E5B950026E599 /* Credentialing */,
 				E30B2FD91E42529900B5BA2B /* Decoding */,
 				E30B2FDB1E42529900B5BA2B /* Encoding */,
 				E30B2FE01E42529900B5BA2B /* Protocols */,
 				E30B2FE31E42529900B5BA2B /* Resource.swift */,
 				E3103A9A1E43C16C00D7EA0E /* WebService.swift */,
 				E3103A741E4287D500D7EA0E /* WebServiceConfiguration.swift */,
-				E30B2FE41E42529900B5BA2B /* WebServiceConfigurationCredential.swift */,
 				E30B2FDF1E42529900B5BA2B /* PropellerNetwork.h */,
 				E30B2FDE1E42529900B5BA2B /* Info.plist */,
 			);
@@ -105,8 +111,18 @@
 			isa = PBXGroup;
 			children = (
 				E3103A731E4287D500D7EA0E /* ParameterEncoding.swift */,
+				E335E3141E4E5BC10026E599 /* RequestCredentialing.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E335E3131E4E5B950026E599 /* Credentialing */ = {
+			isa = PBXGroup;
+			children = (
+				E30B2FE41E42529900B5BA2B /* HeaderRequestCredential.swift */,
+				E335E3161E4E5E9A0026E599 /* QueryStringRequestCredential.swift */,
+			);
+			name = Credentialing;
 			sourceTree = "<group>";
 		};
 		E341BDB91E397B2700DA5152 /* Tests */ = {
@@ -115,6 +131,7 @@
 				E341BDBA1E397B2700DA5152 /* Info.plist */,
 				E341BDBB1E397B2700DA5152 /* PropellerNetworkKitTests.swift */,
 				E341BDBC1E397B2700DA5152 /* SampleResource.swift */,
+				E335E3181E4E64240026E599 /* RequestCredentialingTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -249,12 +266,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3103A721E4287C800D7EA0E /* QueryStringEncoder.swift in Sources */,
-				E30B2FED1E42529900B5BA2B /* WebServiceConfigurationCredential.swift in Sources */,
+				E30B2FED1E42529900B5BA2B /* HeaderRequestCredential.swift in Sources */,
 				E3103A9B1E43C16C00D7EA0E /* WebService.swift in Sources */,
+				E335E3151E4E5BC10026E599 /* RequestCredentialing.swift in Sources */,
 				E3103A761E4287D500D7EA0E /* WebServiceConfiguration.swift in Sources */,
 				E3103A751E4287D500D7EA0E /* ParameterEncoding.swift in Sources */,
 				E30B2FEC1E42529900B5BA2B /* Resource.swift in Sources */,
 				E3103A6E1E4287AE00D7EA0E /* JSONDecoder.swift in Sources */,
+				E335E3171E4E5E9A0026E599 /* QueryStringRequestCredential.swift in Sources */,
 				E3103A711E4287C800D7EA0E /* JSONEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E335E3191E4E64240026E599 /* RequestCredentialingTests.swift in Sources */,
 				E30B2FEF1E4252E900B5BA2B /* PropellerNetworkKitTests.swift in Sources */,
 				E30B2FF01E4252EC00B5BA2B /* SampleResource.swift in Sources */,
 			);

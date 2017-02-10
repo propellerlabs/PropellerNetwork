@@ -160,8 +160,8 @@ public struct WebService {
         configuration.additionalHeaders?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
         
         // Add Auth header
-        if let credential = configuration.credential, let authAccessToken = credential.authAccessToken {
-            request.addValue(authAccessToken, forHTTPHeaderField: credential.authHeaderKey)
+        if let credential = configuration.credential {
+            request = credential.applyTo(request)
         }
         
         return request
