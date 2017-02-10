@@ -28,7 +28,7 @@ public struct WebServiceConfiguration {
     public let additionalHeaders: [String: String]?
     public var credential: WebServiceConfigurationCredential?
     
-    public init(basePath: String,
+    public init(basePath: String?,
          additionalHeaders: [String: String]?,
          credential: WebServiceConfigurationCredential?) {
         
