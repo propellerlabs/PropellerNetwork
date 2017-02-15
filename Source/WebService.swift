@@ -15,7 +15,7 @@ public enum WebServiceError: Error {
     case creatingRequestFailed
     case parsingResponseFailed
     case noParserProvided
-    case unacceptableStatusCode(code: Int)
+    case unacceptableStatusCode(code: Int, data: Data?)
     case unknown
 }
 
@@ -70,7 +70,7 @@ public struct WebService {
             // Check response code
             if let response = response as? HTTPURLResponse {
                 if !acceptableStatusCodes.contains(response.statusCode) {
-                    let error = WebServiceError.unacceptableStatusCode(code: response.statusCode)
+                    let error = WebServiceError.unacceptableStatusCode(code: response.statusCode, data: data)
                     completion(nil, error)
                     return
                 }
