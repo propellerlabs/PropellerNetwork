@@ -142,7 +142,7 @@ public struct WebService {
         
         // Create request and set method
         var request = URLRequest(url: resourceUrl)
-        request.httpMethod = resource.method.rawValue
+        request.httpMethod = resource.method.rawValue.uppercased()
         
         // Add headers
         resource.headers?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
