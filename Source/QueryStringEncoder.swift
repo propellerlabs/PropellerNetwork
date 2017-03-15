@@ -14,7 +14,9 @@ public struct QueryStringEncoder: ParameterEncoding {
     public func encode(_ request: URLRequest, parameters: Parameters) throws -> URLRequest {
         var request = request
         
-        var queryItems = parameters.flatMap { URLQueryItem(name: $0.key, value: "\($0.value)") }
+        var queryItems = parameters.flatMap {
+            URLQueryItem(name: $0.key, value: "\($0.value)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))
+        }
         
         if let url = request.url {
             var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
