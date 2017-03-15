@@ -30,7 +30,8 @@ public struct QueryStringEncoder: ParameterEncoding {
             components?.queryItems = queryItems
             
             if let queryString = components?.query {
-                let newUrl = URL(string: "\(baseString)?\(queryString)")
+                let escapedQueryString = escape(queryString)
+                let newUrl = URL(string: "\(baseString)?\(escapedQueryString)")
                 request.url = newUrl
             }
         }
