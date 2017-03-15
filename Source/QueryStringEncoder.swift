@@ -15,7 +15,7 @@ public struct QueryStringEncoder: ParameterEncoding {
         var request = request
         
         var queryItems = parameters.flatMap {
-            URLQueryItem(name: $0.key, value: "\($0.value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
+            URLQueryItem(name: $0.key, value: escape("\($0.value)"))
         }
         
         if let url = request.url {
@@ -26,6 +26,14 @@ public struct QueryStringEncoder: ParameterEncoding {
             components?.queryItems = queryItems
             request.url = components?.url
         }
+        
         return request
+    }
+    
+    public func escape(_ string: String) -> String {
+        var allowedCharacters = NSCharacterSet.urlQueryAllowed
+        allowedCharacters.remove(charactersIn: "+@")
+        let newString = string.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
+        return newString ?? string
     }
 }
