@@ -15,7 +15,7 @@ public struct QueryStringEncoder: ParameterEncoding {
         var request = request
         
         var queryItems = parameters.flatMap {
-            URLQueryItem(name: $0.key, value: "\($0.value)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))
+            URLQueryItem(name: $0.key, value: "\($0.value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
         }
         
         if let url = request.url {
