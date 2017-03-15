@@ -15,16 +15,24 @@ public struct QueryStringEncoder: ParameterEncoding {
         var request = request
         
         var queryItems = parameters.flatMap {
-            URLQueryItem(name: $0.key, value: escape("\($0.value)"))
+            URLQueryItem(name: $0.key, value: "\($0.value)")
         }
         
         if let url = request.url {
             var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            
+            let baseString = url.absoluteString
+            
             if let currentQueryItems = components?.queryItems {
                 queryItems.append(contentsOf: currentQueryItems)
             }
+            
             components?.queryItems = queryItems
-            request.url = components?.url
+            
+            if let queryString = components?.query {
+                let newUrl = URL(string: "\(baseString)?\(queryString)")
+                request.url = newUrl
+            }
         }
         
         return request
