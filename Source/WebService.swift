@@ -16,6 +16,7 @@ public enum WebServiceError: Error {
     case parsingResponseFailed
     case noParserProvided
     case unacceptableStatusCode(code: Int, data: Data?)
+    case parametersWithoutEncoding
     case unknown
 }
 
@@ -31,9 +32,10 @@ extension WebServiceError: LocalizedError {
             return NSLocalizedString("Could not parse response", comment: "")
         case .unacceptableStatusCode(let statusCode):
             return NSLocalizedString("Returned bad status code: \(statusCode)", comment: "")
+        case .parametersWithoutEncoding:
+            return NSLocalizedString("You tried to encode parameters without specifying encoding", comment: "")
         case .unknown:
-            return NSLocalizedString("An unkwon error occured", comment: "")
-        }
+            return NSLocalizedString("An unknown error occured", comment: "")        }
     }
 }
 
@@ -149,8 +151,11 @@ public struct WebService {
         
         // Add parameters
         if let parameters = resource.parameters {
+            guard let encoding = resource.encoding else {
+                throw WebServiceError.parametersWithoutEncoding
+            }
             do {
-                request = try resource.encoding.encode(request, parameters: parameters)
+                request = try encoding.encode(request, parameters: parameters)
             } catch {
                 throw error
             }

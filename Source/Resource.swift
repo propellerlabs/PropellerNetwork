@@ -33,7 +33,7 @@ public struct Resource<A> {
     /// Additional headers for request
     let headers: [String: String]?
     /// Parameter encoding
-    let encoding: ParameterEncoding
+    let encoding: ParameterEncoding?
     /// Parse
     let parsing: ((Any) throws -> A?)?
 
@@ -44,7 +44,7 @@ public struct Resource<A> {
          method: HTTPMethod = .get,
          parameters: Parameters? = nil,
          headers: [String: String]? = nil,
-         encoding: ParameterEncoding = JSONEncoder.default,
+         encoding: ParameterEncoding? = nil,
          parsing: ((Any) throws -> A?)? = nil) {
         
         self.configuration = configuration

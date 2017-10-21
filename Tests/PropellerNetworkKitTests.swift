@@ -34,6 +34,27 @@ class PropellerNetworkTests: XCTestCase {
         XCTAssertNil(requestError)
     }
     
+    func testResourceWithParametersAndNoEncoderFails() {
+        
+        let userResource = User.create(name: "Tester", email: "tester@propellerlabs.co", password: "test", encoding: nil)
+        
+        let expectation = self.expectation(description: "WebService should throw error trying to encode parameters without an encoder.")
+        
+        var requestError: Error?
+        var requestUser: User?
+        
+        WebService.request(userResource) { user, error in
+            requestError = error
+            requestUser = user
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: timeout, handler: nil)
+        
+        XCTAssertNil(requestUser)
+        XCTAssertNotNil(requestError)
+    }
+    
     func testBasePathEmpty() {
         
         let userResource = Pokemon.get()
