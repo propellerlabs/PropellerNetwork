@@ -18,7 +18,8 @@ extension User {
     
     public static func create(name: String,
                               email: String,
-                              password: String) -> Resource<User> {
+                              password: String,
+                              encoding: ParameterEncoding? = JSONEncoder.default) -> Resource<User> {
         let params = [
             "name": name,
             "email": email,
@@ -27,7 +28,8 @@ extension User {
         return Resource<User>(configuration: ResourceConfiguration.default,
                               urlPath: "/post",
                               method: .post,
-                              parameters: params) { json in
+                              parameters: params,
+                              encoding: encoding) { json in
 
             guard let json = json as? JSONObject else {
                 return nil
